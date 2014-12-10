@@ -22,8 +22,10 @@ $(call inherit-product, $(SRC_TARGET_DIR)/product/languages_full.mk)
 DEVICE_PACKAGE_OVERLAYS += device/samsung/j7eltexx/overlay
 
 # Device uses high-density artwork where available
-PRODUCT_AAPT_CONFIG := normal large
+PRODUCT_AAPT_CONFIG := xlarge
 PRODUCT_AAPT_PREF_CONFIG := xhdpi
+# A list of dpis to select prebuilt apk, in precedence order.
+PRODUCT_AAPT_PREBUILT_DPI := hdpi mdpi
 
 # Boot animation
 TARGET_SCREEN_HEIGHT := 1280
