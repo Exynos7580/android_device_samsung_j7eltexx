@@ -303,6 +303,7 @@ static int get_input_source_id(audio_source_t source, bool wb_amr)
 }
 
 static void adev_set_call_audio_path(struct audio_device *adev);
+static int adev_set_voice_volume(struct audio_hw_device *dev, float volume);
 
 static void do_out_standby(struct stream_out *out);
 /**
@@ -434,35 +435,6 @@ static void select_devices(struct audio_device *adev)
         audio_route_apply_path(adev->ar, input_route);
 
     audio_route_update_mixer(adev->ar);
-
-    /* FIXME: Turn on two mic control for earpiece and speaker */
-/*    if (input_source_id != IN_SOURCE_NONE) {
-        switch (output_device_id) {
-        case OUT_DEVICE_EARPIECE:
-        case OUT_DEVICE_SPEAKER:
-            adev->two_mic_control = true;
-            break;
-        default:
-            adev->two_mic_control = false;
-            break;
-        }
-    }
-
-    if (adev->two_mic_disabled) {
-        adev->two_mic_control = false;
-    }
-
-    if (adev->two_mic_control) {
-        ALOGV("%s: enabling two mic control", __func__);
-        ril_set_two_mic_control(&adev->ril, AUDIENCE, TWO_MIC_SOLUTION_ON);
-    } else {
-        ALOGV("%s: disabling two mic control", __func__);
-        ril_set_two_mic_control(&adev->ril, AUDIENCE, TWO_MIC_SOLUTION_OFF);
-    }*/
-
-    adev->two_mic_control = false;
-
-    adev_set_call_audio_path(adev);
 }
 
 /* BT SCO functions */
@@ -604,6 +576,51 @@ static void stop_voice_call(struct audio_device *adev)
     ALOGV("%s: Successfully closed %d active PCMs", __func__, status);
 }
 
+static void start_call(struct audio_device *adev)
+{
+    if (adev->in_call) {
+        return;
+    }
+    ALOGV("%s: Entering IN_CALL mode", __func__);
+
+    adev->in_call = true;
+
+    if (adev->out_device == AUDIO_DEVICE_NONE ||
+        adev->out_device == AUDIO_DEVICE_OUT_SPEAKER) {
+        adev->out_device = AUDIO_DEVICE_OUT_EARPIECE;
+    }
+    adev->input_source = AUDIO_SOURCE_VOICE_CALL;
+
+    select_devices(adev);
+    start_voice_call(adev);
+
+    adev->two_mic_control = false;
+    ril_set_two_mic_control(&adev->ril, AUDIENCE, TWO_MIC_SOLUTION_OFF);
+
+    adev_set_call_audio_path(adev);
+    adev_set_voice_volume(&adev->hw_device, adev->voice_volume);
+
+    ril_set_call_clock_sync(&adev->ril, SOUND_CLOCK_START);
+}
+
+static void stop_call(struct audio_device *adev)
+{
+    if (!adev->in_call) {
+        return;
+    }
+
+    ALOGV("%s: Leaving IN_CALL mode", __func__);
+
+    adev->in_call = false;
+
+    ril_set_call_clock_sync(&adev->ril, SOUND_CLOCK_STOP);
+    stop_voice_call(adev);
+
+    adev->input_source = AUDIO_SOURCE_DEFAULT;
+
+    select_devices(adev);
+}
+
 static void adev_set_wb_amr_callback(void *data, int enable)
 {
     struct audio_device *adev = (struct audio_device *)data;
@@ -618,9 +635,8 @@ static void adev_set_wb_amr_callback(void *data, int enable)
                   __func__,
                   enable ? "Turn on" : "Turn off");
 
-            stop_voice_call(adev);
-            select_devices(adev);
-            start_voice_call(adev);
+            stop_call(adev);
+            start_call(adev);
         }
     }
     pthread_mutex_unlock(&adev->lock);
@@ -1644,6 +1660,9 @@ static int adev_set_voice_volume(struct audio_hw_device *dev, float volume)
         enum _SoundType sound_type;
 
         switch (adev->out_device) {
+            case AUDIO_DEVICE_OUT_EARPIECE:
+                sound_type = SOUND_TYPE_VOICE;
+                break;
             case AUDIO_DEVICE_OUT_SPEAKER:
                 sound_type = SOUND_TYPE_SPEAKER;
                 break;
@@ -1684,27 +1703,9 @@ static int adev_set_mode(struct audio_hw_device *dev, audio_mode_t mode)
 
     if (adev->mode == AUDIO_MODE_IN_CALL) {
         ALOGV("%s: Entering IN_CALL mode", __func__);
-        if (!adev->in_call) {
-            if (adev->out_device == AUDIO_DEVICE_NONE ||
-                adev->out_device == AUDIO_DEVICE_OUT_SPEAKER) {
-                adev->out_device = AUDIO_DEVICE_OUT_EARPIECE;
-            }
-            adev->input_source = AUDIO_SOURCE_VOICE_CALL;
-            select_devices(adev);
-            start_voice_call(adev);
-            ril_set_call_clock_sync(&adev->ril, SOUND_CLOCK_START);
-            adev_set_voice_volume(&adev->hw_device, adev->voice_volume);
-            adev->in_call = true;
-        }
+        start_voice_call(adev);
     } else {
-        ALOGV("%s: Leaving IN_CALL mode", __func__);
-        if (adev->in_call) {
-            adev->in_call = false;
-            stop_voice_call(adev);
-            ril_set_call_clock_sync(&adev->ril, SOUND_CLOCK_STOP);
-            adev->input_source = AUDIO_SOURCE_DEFAULT;
-            select_devices(adev);
-        }
+        stop_voice_call(adev);
     }
     pthread_mutex_unlock(&adev->lock);
 
