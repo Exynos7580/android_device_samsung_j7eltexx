@@ -616,9 +616,12 @@ static void stop_call(struct audio_device *adev)
     ril_set_call_clock_sync(&adev->ril, SOUND_CLOCK_STOP);
     stop_voice_call(adev);
 
-    adev->input_source = AUDIO_SOURCE_DEFAULT;
+    /* Do not change devices if we are switching to WB */
+    if (adev->mode != AUDIO_MODE_IN_CALL) {
+        adev->input_source = AUDIO_SOURCE_DEFAULT;
 
-    select_devices(adev);
+        select_devices(adev);
+    }
 }
 
 static void adev_set_wb_amr_callback(void *data, int enable)
