@@ -388,13 +388,13 @@ static void select_devices(struct audio_device *adev)
     const char *input_route = NULL;
     int new_route_id;
 
-    audio_route_reset(adev->ar);
-
     enable_hdmi_audio(adev, adev->out_device & AUDIO_DEVICE_OUT_AUX_DIGITAL);
 
     new_route_id = (1 << (input_source_id + OUT_DEVICE_CNT)) + (1 << output_device_id);
-    if (new_route_id == adev->cur_route_id)
+    if (new_route_id == adev->cur_route_id) {
+        ALOGV("%s: Routing hasn't changed, leaving function.", __func__);
         return;
+    }
     adev->cur_route_id = new_route_id;
 
     if (input_source_id != IN_SOURCE_NONE) {
@@ -428,6 +428,8 @@ static void select_devices(struct audio_device *adev)
           adev->out_device, adev->input_source,
           output_route ? output_route : "none",
           input_route ? input_route : "none");
+
+    audio_route_reset(adev->ar);
 
     if (output_route)
         audio_route_apply_path(adev->ar, output_route);
@@ -618,6 +620,7 @@ static void stop_call(struct audio_device *adev)
 
     /* Do not change devices if we are switching to WB */
     if (adev->mode != AUDIO_MODE_IN_CALL) {
+        ALOGV("%s: Reset route to default", __func__);
         adev->input_source = AUDIO_SOURCE_DEFAULT;
 
         select_devices(adev);
