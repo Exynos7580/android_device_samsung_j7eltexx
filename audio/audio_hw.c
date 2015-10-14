@@ -429,8 +429,27 @@ static void select_devices(struct audio_device *adev)
           output_route ? output_route : "none",
           input_route ? input_route : "none");
 
-    audio_route_reset(adev->ar);
+    /*
+     * The Arizona Kernel doc describes firmware loading:
+     *
+     * To load a firmware, or to reboot the ADSP with different firmware you
+     * must:
+     * - Disconnect the ADSP from any active audio path so that it will be
+     *   powered-down
+     * - Set the firmware control to the firmware you want to load
+     * - Connect the ADSP to an active audio path so it will be powered-up
+     */
 
+    /* Turn off all devices by resetting to default mixer state */
+    audio_route_reset(adev->ar);
+    audio_route_update_mixer(adev->ar);
+
+    /*
+     * Now apply the new audio routes
+     *
+     * Set the routes, firmware and volumes first and activate the device as the
+     * last step.
+     */
     if (output_route)
         audio_route_apply_path(adev->ar, output_route);
     if (input_route)
