@@ -637,8 +637,17 @@ static void stop_call(struct audio_device *adev)
 
     /* Do not change devices if we are switching to WB */
     if (adev->mode != AUDIO_MODE_IN_CALL) {
-        ALOGV("%s: Reset route to default", __func__);
+        /* Use speaker as the default. We do not want to stay in earpiece mode */
+        if (adev->out_device == AUDIO_DEVICE_NONE ||
+            adev->out_device == AUDIO_DEVICE_OUT_EARPIECE) {
+            adev->out_device = AUDIO_DEVICE_OUT_SPEAKER;
+        }
         adev->input_source = AUDIO_SOURCE_DEFAULT;
+
+        ALOGV("%s: Reset route to out devices=%#x, input src=%#x",
+              __func__,
+              adev->out_device,
+              adev->input_source);
 
         select_devices(adev);
     }
