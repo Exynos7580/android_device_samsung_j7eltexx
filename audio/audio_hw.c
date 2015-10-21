@@ -632,8 +632,6 @@ static void stop_call(struct audio_device *adev)
 
     ALOGV("%s: Leaving IN_CALL mode", __func__);
 
-    adev->in_call = false;
-
     ril_set_call_clock_sync(&adev->ril, SOUND_CLOCK_STOP);
     stop_voice_call(adev);
 
@@ -644,6 +642,8 @@ static void stop_call(struct audio_device *adev)
 
         select_devices(adev);
     }
+
+    adev->in_call = false;
 }
 
 static void adev_set_wb_amr_callback(void *data, int enable)
