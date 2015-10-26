@@ -422,7 +422,11 @@ static void select_devices(struct audio_device *adev)
                 output_device_id = OUT_DEVICE_BT_SCO_HEADSET_OUT;
                 break;
             default:
-                output_device_id = OUT_DEVICE_SPEAKER;
+                if (adev->input_source == AUDIO_SOURCE_VOICE_CALL) {
+                    output_device_id = OUT_DEVICE_EARPIECE;
+                } else {
+                    output_device_id = OUT_DEVICE_SPEAKER;
+                }
                 break;
             }
             input_route =
@@ -616,7 +620,10 @@ static void start_call(struct audio_device *adev)
 
     adev->in_call = true;
 
-    if (adev->out_device == AUDIO_DEVICE_NONE) {
+    if (adev->out_device == AUDIO_DEVICE_NONE &&
+        adev->in_device == AUDIO_DEVICE_NONE) {
+        ALOGV("%s: No device selected, use earpiece as the default",
+              __func__);
         adev->out_device = AUDIO_DEVICE_OUT_EARPIECE;
     }
     adev->input_source = AUDIO_SOURCE_VOICE_CALL;
