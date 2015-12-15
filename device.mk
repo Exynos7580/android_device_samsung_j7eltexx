@@ -82,8 +82,8 @@ PRODUCT_PACKAGES += \
 #    hwcomposer.exynos5
 
 # GPS
-#PRODUCT_PACKAGES += \
-#    libdmitry
+PRODUCT_PACKAGES += \
+    libdmitry
 
 PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/configs/gps/gps.conf:system/etc/gps.conf \
