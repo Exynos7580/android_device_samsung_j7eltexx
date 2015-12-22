@@ -166,6 +166,7 @@ struct audio_device {
     bool bluetooth_nrec;
     bool wb_amr;
     bool two_mic_control;
+    bool two_mic_disabled;
 
     /* RIL */
     struct ril_handle ril;
@@ -238,12 +239,6 @@ const struct string_to_enum out_channels_name_to_enum_table[] = {
     STRING_TO_ENUM(AUDIO_CHANNEL_OUT_5POINT1),
     STRING_TO_ENUM(AUDIO_CHANNEL_OUT_7POINT1),
 };
-
-/* Do we need to enforce wideband audio? */
-static void force_wideband(struct audio_device *adev)
-{
-    adev->wb_amr = 1;
-}
 
 /* Routing functions */
 
@@ -452,6 +447,10 @@ static void select_devices(struct audio_device *adev)
             adev->two_mic_control = false;
             break;
         }
+    }
+
+    if (adev->two_mic_disabled) {
+        adev->two_mic_control = false;
     }
 
     if (adev->two_mic_control) {
@@ -1944,9 +1943,12 @@ static int adev_open(const hw_module_t* module, const char* name,
 
     /* register callback for wideband AMR setting */
     if (property_get_bool("audio_hal.force_wideband", false))
-        force_wideband(adev);
+        adev->wb_amr = true;
     else
         ril_register_set_wb_amr_callback(adev_set_wb_amr_callback, (void *)adev);
+
+    if (property_get_bool("audio_hal.disable_two_mic", false))
+        adev->two_mic_disabled = true;
 
     *device = &adev->hw_device.common;
 
