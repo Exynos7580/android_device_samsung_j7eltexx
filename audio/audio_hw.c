@@ -50,7 +50,8 @@
 #include "ril_interface.h"
 
 #define PCM_CARD 0
-#define PCM_TOTAL 1
+#define PCM_CARD_HDMI 1
+#define PCM_TOTAL 2
 
 #define PCM_DEVICE 0
 #define PCM_DEVICE_VOICE 1
@@ -683,6 +684,7 @@ static int start_output_stream(struct stream_out *out)
 {
     struct audio_device *adev = out->dev;
     int type;
+    int soundcard = PCM_CARD;
 
     ALOGV("%s: starting stream", __func__);
 
@@ -694,12 +696,16 @@ static int start_output_stream(struct stream_out *out)
     }
     out->disabled = false;
 
-    out->pcm[PCM_CARD] = pcm_open(PCM_CARD, out->pcm_device,
+    /* HDMI has its own card */
+    if (out->device & AUDIO_DEVICE_OUT_AUX_DIGITAL)
+        soundcard = PCM_CARD_HDMI;
+
+    out->pcm[soundcard] = pcm_open(soundcard, out->pcm_device,
                                   PCM_OUT, &out->config);
-    if (out->pcm[PCM_CARD] && !pcm_is_ready(out->pcm[PCM_CARD])) {
+    if (out->pcm[soundcard] && !pcm_is_ready(out->pcm[soundcard])) {
         ALOGE("pcm_open(PCM_CARD) failed: %s",
-                pcm_get_error(out->pcm[PCM_CARD]));
-        pcm_close(out->pcm[PCM_CARD]);
+                pcm_get_error(out->pcm[soundcard]));
+        pcm_close(out->pcm[soundcard]);
         return -ENOMEM;
     }
 
