@@ -57,7 +57,6 @@
 #define PCM_DEVICE_VOICE 1
 #define PCM_DEVICE_SCO 2
 #define PCM_DEVICE_DEEP 3
-#define PCM_DEVICE_PLAYBACK 6
 
 #define MIXER_CARD 0
 
@@ -1518,7 +1517,7 @@ static int adev_open_output_stream(struct audio_hw_device *dev,
         type = OUTPUT_DEEP_BUF;
     } else {
         out->config = pcm_config;
-        out->pcm_device = PCM_DEVICE_PLAYBACK;
+        out->pcm_device = PCM_DEVICE;
         type = OUTPUT_LOW_LATENCY;
     }
 
