@@ -64,7 +64,7 @@
 #define CAPTURE_START_RAMP_MS 100
 
 /* default sampling for HDMI multichannel output */
-#define HDMI_MULTI_DEFAULT_SAMPLING_RATE  44100
+#define HDMI_MULTI_DEFAULT_SAMPLING_RATE 48000
 /* maximum number of channel mask configurations supported. Currently the primary
  * output only supports 1 (stereo) and the multi channel HDMI output 2 (5.1 and 7.1) */
 #define MAX_SUPPORTED_CHANNEL_MASKS 2
