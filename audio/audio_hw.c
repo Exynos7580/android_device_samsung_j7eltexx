@@ -50,8 +50,7 @@
 #include "ril_interface.h"
 
 #define PCM_CARD 0
-#define PCM_CARD_SPDIF 1
-#define PCM_TOTAL 2
+#define PCM_TOTAL 1
 
 #define PCM_DEVICE 0
 #define PCM_DEVICE_VOICE 1
@@ -695,33 +694,13 @@ static int start_output_stream(struct stream_out *out)
     }
     out->disabled = false;
 
-    if (out->device & (AUDIO_DEVICE_OUT_SPEAKER |
-                       AUDIO_DEVICE_OUT_WIRED_HEADSET |
-                       AUDIO_DEVICE_OUT_WIRED_HEADPHONE |
-                       AUDIO_DEVICE_OUT_AUX_DIGITAL |
-                       AUDIO_DEVICE_OUT_ALL_SCO)) {
-        out->pcm[PCM_CARD] = pcm_open(PCM_CARD, out->pcm_device,
-                                      PCM_OUT | PCM_MONOTONIC, &out->config);
-
-        if (out->pcm[PCM_CARD] && !pcm_is_ready(out->pcm[PCM_CARD])) {
-            ALOGE("pcm_open(PCM_CARD) failed: %s",
-                  pcm_get_error(out->pcm[PCM_CARD]));
-            pcm_close(out->pcm[PCM_CARD]);
-            return -ENOMEM;
-        }
-    }
-
-    if (out->device & AUDIO_DEVICE_OUT_DGTL_DOCK_HEADSET) {
-        out->pcm[PCM_CARD_SPDIF] = pcm_open(PCM_CARD_SPDIF, out->pcm_device,
-                                            PCM_OUT | PCM_MONOTONIC, &out->config);
-
-        if (out->pcm[PCM_CARD_SPDIF] &&
-                !pcm_is_ready(out->pcm[PCM_CARD_SPDIF])) {
-            ALOGE("pcm_open(PCM_CARD_SPDIF) failed: %s",
-                  pcm_get_error(out->pcm[PCM_CARD_SPDIF]));
-            pcm_close(out->pcm[PCM_CARD_SPDIF]);
-            return -ENOMEM;
-        }
+    out->pcm[PCM_CARD] = pcm_open(PCM_CARD, out->pcm_device,
+                                  PCM_OUT, &out->config);
+    if (out->pcm[PCM_CARD] && !pcm_is_ready(out->pcm[PCM_CARD])) {
+        ALOGE("pcm_open(PCM_CARD) failed: %s",
+                pcm_get_error(out->pcm[PCM_CARD]));
+        pcm_close(out->pcm[PCM_CARD]);
+        return -ENOMEM;
     }
 
     /* in call routing must go through set_parameters */
@@ -1055,14 +1034,6 @@ static int out_set_parameters(struct audio_stream *stream, const char *kvpairs)
     if (ret >= 0) {
         val = atoi(value);
         if ((out->device != val) && (val != 0)) {
-            /* Force standby if moving to/from SPDIF or if the output
-             * device changes when in SPDIF mode */
-            if (((val & AUDIO_DEVICE_OUT_DGTL_DOCK_HEADSET) ^
-                 (adev->out_device & AUDIO_DEVICE_OUT_DGTL_DOCK_HEADSET)) ||
-                (adev->out_device & AUDIO_DEVICE_OUT_DGTL_DOCK_HEADSET)) {
-                do_out_standby(out);
-            }
-
             /* force output standby to start or stop SCO pcm stream if needed */
             if ((val & AUDIO_DEVICE_OUT_ALL_SCO) ^
                 (out->device & AUDIO_DEVICE_OUT_ALL_SCO)) {
