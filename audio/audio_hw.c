@@ -397,8 +397,9 @@ static void select_devices(struct audio_device *adev)
     const char *output_route = NULL;
     const char *input_route = NULL;
     int new_route_id;
-
-    enable_hdmi_audio(adev, adev->out_device & AUDIO_DEVICE_OUT_AUX_DIGITAL);
+    
+    if (adev->hdmi_drv_fd == 0)
+        enable_hdmi_audio(adev, adev->out_device & AUDIO_DEVICE_OUT_AUX_DIGITAL);
 
     new_route_id = (1 << (input_source_id + OUT_DEVICE_CNT)) + (1 << output_device_id);
     if (new_route_id == adev->cur_route_id) {
@@ -1111,14 +1112,18 @@ static int out_set_parameters(struct audio_stream *stream, const char *kvpairs)
                 do_out_standby(out);
             }
 
-            if (!out->standby && (out == adev->outputs[OUTPUT_HDMI] ||
-                    !adev->outputs[OUTPUT_HDMI] ||
-                    adev->outputs[OUTPUT_HDMI]->standby)) {
-                adev->out_device = output_devices(out) | val;
-                select_devices(adev);
+            if (adev->hdmi_drv_fd == 0) {
+                if (!out->standby && (out == adev->outputs[OUTPUT_HDMI] ||
+                        !adev->outputs[OUTPUT_HDMI] ||
+                        adev->outputs[OUTPUT_HDMI]->standby)) {
+                    adev->out_device = output_devices(out) | val;
+                    select_devices(adev);
+                }
             }
 
             out->device = val;
+            if (adev->hdmi_drv_fd < 0)
+                adev->out_device = output_devices(out) | val;
 
             /*
              * If we switch from earpiece to speaker, we need to fully reset the
@@ -1994,6 +1999,8 @@ static int adev_open(const hw_module_t* module, const char* name,
 
     if (property_get_bool("audio_hal.disable_two_mic", false))
         adev->two_mic_disabled = true;
+
+    open_hdmi_driver(adev);
 
     *device = &adev->hw_device.common;
 
