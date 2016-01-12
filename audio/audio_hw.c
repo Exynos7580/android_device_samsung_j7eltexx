@@ -1774,12 +1774,11 @@ static int adev_set_mode(struct audio_hw_device *dev, audio_mode_t mode)
     pthread_mutex_lock(&adev->lock);
     adev->mode = mode;
 
-    if (adev->mode == AUDIO_MODE_IN_CALL) {
-        ALOGV("%s: Entering IN_CALL mode", __func__);
-        start_voice_call(adev);
-    } else {
-        stop_voice_call(adev);
-    }
+    if (adev->mode == AUDIO_MODE_IN_CALL)
+        start_call(adev);
+    else
+        stop_call(adev);
+
     pthread_mutex_unlock(&adev->lock);
 
     return 0;
