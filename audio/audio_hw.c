@@ -1132,6 +1132,11 @@ static int out_set_parameters(struct audio_stream *stream, const char *kvpairs)
             } else {
                 select_devices(adev);
             }
+
+            /* start SCO stream if needed */
+            if (val & AUDIO_DEVICE_OUT_ALL_SCO) {
+                start_bt_sco(adev);
+            }
         }
     }
     unlock_all_outputs(adev, NULL);
