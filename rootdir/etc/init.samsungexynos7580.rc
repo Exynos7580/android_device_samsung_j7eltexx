@@ -31,6 +31,13 @@ on post-fs-data
     chown system radio /sys/class/audio/earjack/state
     chown system radio /sys/class/audio/earjack/mic_adc
 
+    # Vibrations
+    chown system system /sys/devices/virtual/timed_output/vibrator/enable
+    chown system system /sys/devices/virtual/timed_output/vibrator/intensity
+    # Default to 90% vibrator strength
+    write /sys/devices/virtual/timed_output/vibrator/intensity 9000
+
+
 on boot
     # override init.rc to keep plenty of large order chunks around
     # to improve allocation times
