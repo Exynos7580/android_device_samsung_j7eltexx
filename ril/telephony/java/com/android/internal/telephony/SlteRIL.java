@@ -44,14 +44,14 @@ public class SlteRIL extends RIL {
     static final boolean RILJ_LOGD = true;
     static final boolean RILJ_LOGV = true;
 
+    private static final int RIL_REQUEST_DIAL_EMERGENCY_CALL = 10001;
+
     private static final int RIL_UNSOL_DEVICE_READY_NOTI = 11008;
     private static final int RIL_UNSOL_AM = 11010;
     private static final int RIL_UNSOL_SIM_PB_READY = 11021;
 
-    private static final int RIL_REQUEST_DIAL_EMERGENCY_CALL = 10016;
-
     public SlteRIL(Context context, int preferredNetworkType, int cdmaSubscription) {
-        super(context, preferredNetworkType, cdmaSubscription, null);
+        this(context, preferredNetworkType, cdmaSubscription, null);
     }
 
     public SlteRIL(Context context, int preferredNetworkType,
@@ -348,18 +348,6 @@ public class SlteRIL extends RIL {
 
         /* Remap incorrect respones or ignore them */
         switch (origResponse) {
-            case 1040:
-                newResponse = RIL_UNSOL_ON_SS;
-                break;
-            case 1041:
-                newResponse = RIL_UNSOL_STK_CC_ALPHA_NOTIFY;
-                break;
-            case 11031:
-                newResponse = RIL_UNSOL_UICC_SUBSCRIPTION_STATUS_CHANGED;
-                break;
-            case 1038: // RIL_UNSOL_TETHERED_MODE_STATE_CHANGED
-            case 1039: // RIL_UNSOL_DATA_NETWORK_STATE_CHANGED
-            case 1042: // RIL_UNSOL_QOS_STATE_CHANGED_IND
             case RIL_UNSOL_DEVICE_READY_NOTI: /* Registrant notification */
             case RIL_UNSOL_SIM_PB_READY: /* Registrant notification */
                 Rlog.v(RILJ_LOG_TAG,
