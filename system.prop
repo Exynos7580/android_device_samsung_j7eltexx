@@ -1,0 +1,35 @@
+# Audio
+af.fast_track_multiplier=1
+audio_hal.force_wideband=true
+
+# Display
+ro.sf.lcd_density=320
+ro.opengles.version=196609
+
+# Radio
+#telephony.lteOnCdmaDevice=0
+#persist.radio.apm_sim_not_pwdn=1
+#persist.radio.add_power_save=1
+rild.libpath=/system/lib/libsec-ril.so
+rild.libpath2=/system/lib/libsec-ril-dsds.so
+rild.libargs=-d /dev/ttyS0
+ro.telephony.ril_class=SlteRIL
+ro.use_data_netmgrd=false
+persist.data.netmgrd.qos.enable=false
+ro.ril.hsxpa=1
+ro.ril.gprsclass=10
+#persist.radio.multisim.config=dsds
+#ro.multisim.simslotcount=2
+
+# Wifi
+wifi.interface=wlan0
+
+# misc
+ro.chipname=exynos7580
+dalvik.vm.heapstartsize=8m
+dalvik.vm.heapgrowthlimit=128m
+dalvik.vm.heapsize=512m
+dalvik.vm.heaptargetutilization=0.75
+dalvik.vm.heapminfree=2m
+dalvik.vm.heapmaxfree=8m
+ro.arch=exynos7580

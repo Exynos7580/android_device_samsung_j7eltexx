@@ -1,0 +1,152 @@
+/dev/mali0                0666   system     system
+/dev/ion                  0666   system     system
+/dev/ump                  0666   system     graphics
+/dev/exynos-mem           0660   system     graphics
+/dev/video0               0660   system     camera
+/dev/video1               0660   system     camera
+/dev/video2               0660   system     camera
+/dev/video3               0660   system     camera
+/dev/video20              0660   system     system
+# media0 is used for GSC, DECON, etc
+/dev/media0               0660   system     camera
+# media1 is used for DECON Ext WB
+/dev/media1               0660   system     graphics
+# Various devices use the v4l-subdev interface
+# We declare all such nodes simultaneously here
+/dev/v4l-subdev0          0660   system     camera
+/dev/v4l-subdev1          0660   system     camera
+/dev/v4l-subdev2          0660   system     camera
+/dev/v4l-subdev3          0660   system     camera
+/dev/v4l-subdev4          0660   system     camera
+/dev/v4l-subdev5          0660   system     camera
+/dev/v4l-subdev6          0660   system     camera
+/dev/v4l-subdev7          0660   system     camera
+/dev/v4l-subdev8          0660   system     camera
+/dev/v4l-subdev9          0660   system     camera
+/dev/v4l-subdev10         0660   system     camera
+/dev/v4l-subdev11         0660   system     camera
+/dev/v4l-subdev12         0660   system     camera
+/dev/v4l-subdev13         0660   system     camera
+/dev/v4l-subdev14         0660   system     camera
+/dev/v4l-subdev15         0660   system     camera
+/dev/v4l-subdev16         0660   system     camera
+/dev/v4l-subdev17         0660   system     camera
+/dev/v4l-subdev18         0660   system     camera
+/dev/v4l-subdev19         0660   system     camera
+# v4l-subdev20 is used for DECON Ext WB
+/dev/v4l-subdev20         0660   system     graphics
+/dev/v4l-subdev21         0660   system     graphics
+
+# gscalers
+/dev/video23              0660   media      graphics
+/dev/video26              0660   media      graphics
+/dev/video24              0660   media      graphics
+/dev/video27              0660   media      graphics
+/dev/video29              0660   media      graphics
+/dev/video30              0660   media      graphics
+# video31 is used for DECON Ext WB
+/dev/video31              0660   media      graphics
+
+# mscalers
+/dev/video50              0660   media      graphics
+/dev/video51              0660   media      graphics
+/dev/m2m1shot_scaler0     0660   media      graphics
+/dev/m2m1shot_scaler1     0660   media      graphics
+
+/dev/video55              0666   system     graphics
+/dev/fimg2d               0666   system     graphics
+/dev/i2c-2                0660   system     system
+/dev/HPD                  0660   system     system
+
+# mfc
+/dev/video6               0660   media      media
+/dev/video7               0660   media      media
+/dev/video8               0660   media      media
+/dev/video9               0660   media      media
+
+# camera
+/dev/video100             0660   media      media
+/dev/video101             0660   media      media
+/dev/video102             0660   media      media
+/dev/video109             0660   media      media
+/dev/video110             0660   media      media
+/dev/video111             0660   media      media
+/dev/video112             0660   media      media
+/dev/video120             0660   media      media
+/dev/video121             0660   media      media
+/dev/video122             0660   media      media
+/dev/video130             0660   media      media
+/dev/video131             0660   media      media
+/dev/video132             0660   media      media
+/dev/video140             0660   media      media
+/dev/video141             0660   media      media
+/dev/video142             0660   media      media
+/dev/video150             0660   media      media
+/dev/video151             0660   media      media
+/dev/video152             0660   media      media
+/dev/video160             0660   media      media
+/dev/media2               0660   media      media
+
+# hevc
+/dev/video10              0660   media      media
+/dev/video11              0660   media      media
+
+# jpeg
+/dev/video13              0660   media      media
+/dev/video14              0660   media      media
+
+# audio
+/dev/seiren               0660   system     audio
+
+# Secure MEM driver
+/dev/s5p-smem             0660   drm        drmrpc
+
+# Modem Interface
+/dev/block/platform/13540000.dwmmc0/by-name/RADIO     0660   system     radio
+/dev/block/platform/13540000.dwmmc0/by-name/CP_DEBUG  0660   system     radio
+/dev/umts*                0660   system     radio
+/dev/smd4		  0660	 system     radio
+
+# Blowfish
+/dev/tzdev                0660   system     system
+/dev/ionfd2phys           0660   system     radio
+/dev/tuihw                0660   system     system
+/dev/tzirs                0660   system     system
+
+# Sensorhub IIO
+/dev/ssp_sensorhub        0660   system		system
+/dev/iio:device*          0660   system		system
+/sys/devices/13910000.spi/spi_master/spi0/spi0.0/iio:device*    buffer/enable       0660    system    system
+/sys/devices/13910000.spi/spi_master/spi0/spi0.0/iio:device*    buffer/length       0660    system    system
+/sys/bus/iio/devices/iio:device*    0664   system     radio
+
+# Dynamic Cluster Hotplug
+/sys/devices/system/cpu/cpu0/cpufreq	interactive/target_loads	0660	system	system
+/sys/devices/system/cpu/cpu0/cpufreq	interactive/above_hispeed_delay	0660	system	system
+/sys/devices/system/cpu/cpu0/cpufreq	interactive/hispeed_freq	0660	system	system
+/sys/devices/system/cpu/cpu0/cpufreq	interactive/go_hispeed_load	0660	system	system
+/sys/devices/system/cpu/cpu0/cpufreq	interactive/min_sample_time	0660	system	system
+/sys/devices/system/cpu/cpu0/cpufreq	interactive/timer_rate	0660	system	system
+/sys/devices/system/cpu/cpu0/cpufreq	interactive/timer_slack	0660	system	system
+/sys/devices/system/cpu/cpu0/cpufreq	interactive/boost	0660	system	system
+/sys/devices/system/cpu/cpu0/cpufreq	interactive/boostpulse	0200	system	system
+/sys/devices/system/cpu/cpu0/cpufreq	interactive/boostpulse_duration	0660	system	system
+/sys/devices/system/cpu/cpu0/cpufreq	interactive/io_is_busy	0660	system	system
+
+/sys/devices/system/cpu/cpu4/cpufreq	interactive/target_loads	0660	system	system
+/sys/devices/system/cpu/cpu4/cpufreq	interactive/above_hispeed_delay	0660	system	system
+/sys/devices/system/cpu/cpu4/cpufreq	interactive/hispeed_freq	0660	system	system
+/sys/devices/system/cpu/cpu4/cpufreq	interactive/go_hispeed_load	0660	system	system
+/sys/devices/system/cpu/cpu4/cpufreq	interactive/min_sample_time	0660	system	system
+/sys/devices/system/cpu/cpu4/cpufreq	interactive/timer_rate	0660	system	system
+/sys/devices/system/cpu/cpu4/cpufreq	interactive/timer_slack	0660	system	system
+/sys/devices/system/cpu/cpu4/cpufreq	interactive/boost	0660	system	system
+/sys/devices/system/cpu/cpu4/cpufreq	interactive/boostpulse	0200	system	system
+/sys/devices/system/cpu/cpu4/cpufreq	interactive/boostpulse_duration	0660	system	system
+/sys/devices/system/cpu/cpu4/cpufreq	interactive/io_is_busy	0660	system	system
+
+# Audio NXP AMP
+/dev/i2c-20                0660   system     system
+
+# Google FRP solution
+/dev/block/platform/13540000.dwmmc0/by-name/PERSISTENT    0660    system    system
