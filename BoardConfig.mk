@@ -84,8 +84,8 @@ BOARD_USE_VP8ENC_SUPPORT := true
 TARGET_POWERHAL_VARIANT := samsung
 
 # Samsung Seiren audio
-BOARD_USE_ALP_AUDIO := true
-BOARD_USE_SEIREN_AUDIO := true
+#BOARD_USE_ALP_AUDIO := true
+#BOARD_USE_SEIREN_AUDIO := true
 
 # Kernel
 TARGET_KERNEL_ARCH := arm64
