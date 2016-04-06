@@ -87,6 +87,13 @@
 /dev/video160             0660   media      media
 /dev/media2               0660   media      media
 
+# MobiCore
+/dev/mobicore             0700   system     system
+/dev/mobicore-user        0666   radio     	system
+
+# Secure MEM driver
+/dev/s5p-smem             0660   system     system
+
 # hevc
 /dev/video10              0660   media      media
 /dev/video11              0660   media      media
@@ -98,27 +105,9 @@
 # audio
 /dev/seiren               0660   system     audio
 
-# Secure MEM driver
-/dev/s5p-smem             0660   drm        drmrpc
-
 # Modem Interface
-/dev/block/platform/13540000.dwmmc0/by-name/RADIO     0660   system     radio
-/dev/block/platform/13540000.dwmmc0/by-name/CP_DEBUG  0660   system     radio
+/dev/block/mmcblk0p13     0660   system     radio
 /dev/umts*                0660   system     radio
-/dev/smd4		  0660	 system     radio
-
-# Blowfish
-/dev/tzdev                0660   system     system
-/dev/ionfd2phys           0660   system     radio
-/dev/tuihw                0660   system     system
-/dev/tzirs                0660   system     system
-
-# Sensorhub IIO
-/dev/ssp_sensorhub        0660   system		system
-/dev/iio:device*          0660   system		system
-/sys/devices/13910000.spi/spi_master/spi0/spi0.0/iio:device*    buffer/enable       0660    system    system
-/sys/devices/13910000.spi/spi_master/spi0/spi0.0/iio:device*    buffer/length       0660    system    system
-/sys/bus/iio/devices/iio:device*    0664   system     radio
 
 # Dynamic Cluster Hotplug
 /sys/devices/system/cpu/cpu0/cpufreq	interactive/target_loads	0660	system	system
@@ -144,9 +133,3 @@
 /sys/devices/system/cpu/cpu4/cpufreq	interactive/boostpulse	0200	system	system
 /sys/devices/system/cpu/cpu4/cpufreq	interactive/boostpulse_duration	0660	system	system
 /sys/devices/system/cpu/cpu4/cpufreq	interactive/io_is_busy	0660	system	system
-
-# Audio NXP AMP
-/dev/i2c-20                0660   system     system
-
-# Google FRP solution
-/dev/block/platform/13540000.dwmmc0/by-name/PERSISTENT    0660    system    system

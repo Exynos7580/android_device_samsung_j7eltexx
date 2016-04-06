@@ -15,14 +15,15 @@ on property:sys.usb.config=none
 # This should only be used during device bringup
 # and as a fallback if the USB manager fails to set a standard configuration
 on init
+    write /sys/class/android_usb/android0/iSerial $ro.serialno
     write /sys/class/android_usb/android0/f_rndis/manufacturer Samsung
     write /sys/class/android_usb/android0/f_rndis/vendorID 04e8
     write /sys/class/android_usb/android0/f_rndis/wceis 1
 
 on boot
-    write /sys/class/android_usb/android0/iManufacturer ${ro.product.manufacturer}
-    write /sys/class/android_usb/android0/iProduct ${ro.product.model}
-    write /sys/class/android_usb/android0/iSerial ${ro.serialno}
+    write /sys/class/android_usb/android0/iManufacturer $ro.product.manufacturer
+    write /sys/class/android_usb/android0/iProduct $ro.product.model
+    write /sys/class/android_usb/android0/iSerial $ro.serialno
     write /sys/class/android_usb/f_mass_storage/inquiry_string "Samsung"
 
 on property:sys.usb.config=adb
@@ -213,25 +214,6 @@ on property:sys.usb.config=dm,acm,adb
     setprop sys.usb.state ${sys.usb.config}
 
 on property:sys.usb.config=dm,acm
-    write /sys/class/android_usb/android0/enable 0
-    write /sys/class/android_usb/android0/idVendor 04E8
-    write /sys/class/android_usb/android0/idProduct 685d
-    write /sys/class/android_usb/android0/functions ${sys.usb.config}
-    write /sys/class/android_usb/android0/enable 1
-    setprop sys.usb.state ${sys.usb.config}
-
-# Add for acm,dm,adb config
-on property:sys.usb.config=acm,dm,adb
-    write /sys/class/android_usb/android0/enable 0
-    write /sys/class/android_usb/android0/idVendor 04E8
-    write /sys/class/android_usb/android0/idProduct 685d
-    write /sys/class/android_usb/android0/functions ${sys.usb.config}
-    write /sys/class/android_usb/android0/enable 1
-    start adbd
-    setprop sys.usb.state ${sys.usb.config}
-
-# Add for acm,dm config
-on property:sys.usb.config=acm,dm
     write /sys/class/android_usb/android0/enable 0
     write /sys/class/android_usb/android0/idVendor 04E8
     write /sys/class/android_usb/android0/idProduct 685d
