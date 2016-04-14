@@ -50,7 +50,7 @@ struct route_config {
 };
 
 const struct route_config voice_speaker = {
-    "incall_default-speaker",
+    "incall_nb-speaker",
     "incall_nb-speaker-mic"
 };
 
@@ -60,7 +60,7 @@ const struct route_config voice_speaker_wb = {
 };
 
 const struct route_config voice_earpiece = {
-    "incall_default-handset",
+    "incall_nb-handset",
     "incall_nb-handset-mic"
 };
 
@@ -70,8 +70,8 @@ const struct route_config voice_earpiece_wb = {
 };
 
 const struct route_config voice_headphones = {
-    "incall_default-headphone",
-    "incall_default-headphone-mic"
+    "incall_nb-headphone",
+    "incall_nb-headphone-mic"
 };
 
 const struct route_config voice_headphones_wb = {
@@ -80,8 +80,8 @@ const struct route_config voice_headphones_wb = {
 };
 
 const struct route_config voice_headset = {
-    "incall_default-headset",
-    "incall_default-headset-mic"
+    "incall_nb-headset",
+    "incall_nb-headset-mic"
 };
 
 const struct route_config voice_headset_wb = {
@@ -90,8 +90,8 @@ const struct route_config voice_headset_wb = {
 };
 
 const struct route_config voice_bt_sco = {
-    "incall_default-bt-sco-headset",
-    "incall_default-bt-sco-headset-in",
+    "incall_nb-bt-sco-headset",
+    "incall_nb-bt-sco-headset-in",
 };
 
 const struct route_config voice_bt_sco_wb = {
@@ -100,8 +100,8 @@ const struct route_config voice_bt_sco_wb = {
 };
 
 const struct route_config voice_bt_sco_headset_out = {
-    "incall_default-bt-sco-headset",
-    "incall_default-bt-sco-headset-in",
+    "incall_nb-bt-sco-headset",
+    "incall_nb-bt-sco-headset-in",
 };
 
 const struct route_config voice_bt_sco_headset_out_wb = {
