@@ -18,8 +18,8 @@ ro.use_data_netmgrd=false
 persist.data.netmgrd.qos.enable=false
 ro.ril.hsxpa=1
 ro.ril.gprsclass=10
-#persist.radio.multisim.config=dsds
-#ro.multisim.simslotcount=2
+persist.radio.multisim.config=dsds
+ro.multisim.simslotcount=2
 
 # Wifi
 wifi.interface=wlan0
