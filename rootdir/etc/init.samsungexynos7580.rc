@@ -2,6 +2,7 @@ import init.samsungexynos7580.usb.rc
 import init.wifi.rc
 import init.baseband.rc
 import init.fac.rc
+import init.rilcommon.rc
 
 on early-init
     mount debugfs /sys/kernel/debug /sys/kernel/debug
@@ -338,14 +339,6 @@ on property:ro.bootmode=charger
     check_fs /dev/block/platform/13540000.dwmmc0/by-name/EFS ext4
     mount ext4 /dev/block/platform/13540000.dwmmc0/by-name/EFS /efs nosuid nodev noatime noauto_da_alloc,discard,journal_async_commit
 
-# 2nd RIL
-service ril-daemon1 /system/bin/rild -l /system/lib/libsec-ril-dsds.so -c 2
-    class main
-    socket rild2 stream 660 root radio
-    socket rild-debug2 stream 660 radio system
-    user root
-    group radio cache inet misc audio sdcard_r sdcard_rw log
-	
 # start multiple rilds based on multisim property
 on property:ro.multisim.simslotcount=2
     stop ril-daemon

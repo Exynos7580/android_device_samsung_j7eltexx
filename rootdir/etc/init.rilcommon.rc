@@ -36,4 +36,4 @@ service dhcpcd_eth0 /system/bin/dhcpcd -ABKL
 
 # for Wi-Fi only models
 on property:ro.radio.noril=yes
-stop ril-daemon
+    stop ril-daemon
