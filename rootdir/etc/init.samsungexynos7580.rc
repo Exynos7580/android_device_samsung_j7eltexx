@@ -311,7 +311,7 @@ service argos-daemon /system/bin/argosd
 
 # GPS
 service gpsd /system/bin/gpsd -c /system/etc/gps.xml
-    class main
+    class late_start
     user gps
     group system inet net_raw
     ioprio be 0
