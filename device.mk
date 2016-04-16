@@ -66,6 +66,10 @@ PRODUCT_COPY_FILES += \
 PRODUCT_PACKAGES += \
     charger_res_images
 
+# Camera
+PRODUCT_PACKAGES += \
+    libxml2
+
 # Filesystem management tools
 PRODUCT_PACKAGES += \
     make_ext4fs \
