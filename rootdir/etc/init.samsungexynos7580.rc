@@ -147,6 +147,10 @@ on fs
     mount_all /fstab.samsungexynos7580
     setprop ro.crypto.fuse_sdcard true
 
+# Permission for _______
+    chown radio system /sys/power/wake_lock
+    chmod 0660 /sys/power/wake_lock
+
 # efs
     mkdir /efs/imei 0775 radio radio
     restorecon -R /efs
