@@ -33,3 +33,6 @@ dalvik.vm.heaptargetutilization=0.75
 dalvik.vm.heapminfree=2m
 dalvik.vm.heapmaxfree=8m
 ro.arch=exynos7580
+
+# Strict Mode
+persist.sys.strictmode.disable=true
