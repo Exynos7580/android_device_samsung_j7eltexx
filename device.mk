@@ -129,6 +129,10 @@ PRODUCT_PACKAGES += \
 PRODUCT_PACKAGES += \
     SamsungServiceMode
 
+# SYMBOLS FOR BLOBS
+PRODUCT_PACKAGES += \
+    libsamsung_symbols
+
 # Wifi
 PRODUCT_PACKAGES += \
     init.sec.boot.sh

@@ -8,6 +8,8 @@ on early-init
     mount debugfs /sys/kernel/debug /sys/kernel/debug
 
 on init
+    export LD_SHIM_LIBS "/system/lib/libexynoscamera.so|libsamsung_symbols.so:/system/lib/omx/libOMX.Exynos.AVC.Encoder.so|libsamsung_symbols.so"
+
     #start watchdogd
 
     mkdir /preload 0771 system system
