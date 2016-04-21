@@ -157,10 +157,6 @@ BOARD_OVERRIDE_RS_CPU_VARIANT_32 := cortex-a53
 # Sensors
 TARGET_NO_SENSOR_PERMISSION_CHECK := true
 
-# Sound
-# Lollipop Audio HAL is incompatible with Android M (see http://review.cyanogenmod.org/#/c/121831/)
-TARGET_TINY_ALSA_IGNORE_SILENCE_SIZE := true
-
 # WEBGL
 ENABLE_WEBGL := true
 
