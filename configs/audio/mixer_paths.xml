@@ -1512,7 +1512,7 @@
 	<path name="gain-media-speaker">
 		<ctl name="S2801 MIX1_LVL" value="0" />
 		<ctl name="DAC Gain" value="121" />
-		<ctl name="Speaker Volume" value="3" />
+		<ctl name="Speaker Volume" value="5" />
 	</path>
 
 	<path name="gain-media-headset">
