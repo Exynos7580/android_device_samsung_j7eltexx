@@ -50,42 +50,42 @@ struct route_config {
 };
 
 const struct route_config voice_speaker = {
-    "incall_nb-speaker",
+    "media-speaker",
     "incall_nb-speaker-mic"
 };
 
 const struct route_config voice_speaker_wb = {
-    "incall_wb-speaker",
+    "media-speaker",
     "incall_wb-speaker-mic"
 };
 
 const struct route_config voice_earpiece = {
-    "incall_nb-handset",
+    "media-handset",
     "incall_nb-handset-mic"
 };
 
 const struct route_config voice_earpiece_wb = {
-    "incall_wb-handset",
+    "media-handset",
     "incall_wb-handset-mic"
 };
 
 const struct route_config voice_headphones = {
-    "incall_nb-headphone",
+    "media-headphone",
     "incall_nb-headphone-mic"
 };
 
 const struct route_config voice_headphones_wb = {
-    "incall_wb-headphone",
+    "media-headphone",
     "incall_wb-headphone-mic"
 };
 
 const struct route_config voice_headset = {
-    "incall_nb-headset",
+    "media-headset",
     "incall_nb-headset-mic"
 };
 
 const struct route_config voice_headset_wb = {
-    "incall_wb-headset",
+    "media-headset",
     "incall_wb-headset-mic"
 };
 
