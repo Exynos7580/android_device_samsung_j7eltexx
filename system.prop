@@ -3,6 +3,9 @@ af.fast_track_multiplier=1
 audio_hal.disable_two_mic=true
 audio_hal.force_wideband=true
 
+# Camera
+camera2.portability.force_api=1
+
 # Display
 ro.sf.lcd_density=320
 ro.opengles.version=196609
