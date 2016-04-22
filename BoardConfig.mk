@@ -24,6 +24,8 @@ BOARD_VENDOR := samsung
 TARGET_SPECIFIC_HEADER_PATH := $(DEVICE_PATH)/include
 
 # CPU
+TARGET_GLOBAL_CFLAGS += -mfpu=neon -mfloat-abi=softfp
+TARGET_GLOBAL_CPPFLAGS += -mfpu=neon -mfloat-abi=softfp
 TARGET_ARCH := arm
 TARGET_CPU_ABI := armeabi-v7a
 TARGET_CPU_ABI2 := armeabi
