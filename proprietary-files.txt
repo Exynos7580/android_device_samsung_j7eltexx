@@ -1,4 +1,21 @@
 # Audio
+etc/firmware/dbmd2_vqe_fw_i2c.bin
+
+### Wifi
+etc/wifi/bcmdhd_apsta.bin
+etc/wifi/bcmdhd_mfg.bin
+etc/wifi/bcmdhd_sta.bin
+etc/wifi/nvram_mfg.txt
+etc/wifi/nvram_net.txt
+
+### Media
+# S5P Multi Format Codec
+vendor/firmware/mfc_fw.bin
+# Image subsystem
+vendor/firmware/fimc_is_fd.bin
+vendor/firmware/fimc_is_fw2_3l2.bin
+
+# Noise supppression
 vendor/etc/nxp/BargeIn/Tx_ControlParams_WIDEBAND_ANALOG_DOCK.txt
 vendor/etc/nxp/BargeIn/Tx_ControlParams_WIDEBAND_BLUETOOTH_SCO_HEADSET.txt
 vendor/etc/nxp/BargeIn/Tx_ControlParams_WIDEBAND_EARPIECE.txt
@@ -13,6 +30,30 @@ vendor/etc/nxp/BargeInDriving/Tx_ControlParams_WIDEBAND_WIRED_HEADPHONE.txt
 vendor/etc/nxp/BargeInDriving/Tx_ControlParams_WIDEBAND_WIRED_HEADSET.txt
 vendor/etc/nxp/LVVEFS_Rx_Configuration.txt
 vendor/etc/nxp/LVVEFS_Tx_Configuration.txt
+vendor/etc/nxp/VideoTelephony/Rx_ControlParams_NARROWBAND_BLUETOOTH_SCO_HEADSET_NREC_ON.txt
+vendor/etc/nxp/VideoTelephony/Rx_ControlParams_NARROWBAND_BLUETOOTH_SCO_HEADSET.txt
+vendor/etc/nxp/VideoTelephony/Rx_ControlParams_NARROWBAND_EARPIECE.txt
+vendor/etc/nxp/VideoTelephony/Rx_ControlParams_NARROWBAND_SPEAKER.txt
+vendor/etc/nxp/VideoTelephony/Rx_ControlParams_NARROWBAND_WIRED_HEADPHONE.txt
+vendor/etc/nxp/VideoTelephony/Rx_ControlParams_NARROWBAND_WIRED_HEADSET.txt
+vendor/etc/nxp/VideoTelephony/Rx_ControlParams_WIDEBAND_BLUETOOTH_SCO_HEADSET_NREC_ON.txt
+vendor/etc/nxp/VideoTelephony/Rx_ControlParams_WIDEBAND_BLUETOOTH_SCO_HEADSET.txt
+vendor/etc/nxp/VideoTelephony/Rx_ControlParams_WIDEBAND_EARPIECE.txt
+vendor/etc/nxp/VideoTelephony/Rx_ControlParams_WIDEBAND_SPEAKER.txt
+vendor/etc/nxp/VideoTelephony/Rx_ControlParams_WIDEBAND_WIRED_HEADPHONE.txt
+vendor/etc/nxp/VideoTelephony/Rx_ControlParams_WIDEBAND_WIRED_HEADSET.txt
+vendor/etc/nxp/VideoTelephony/Tx_ControlParams_NARROWBAND_BLUETOOTH_SCO_HEADSET_NREC_ON.txt
+vendor/etc/nxp/VideoTelephony/Tx_ControlParams_NARROWBAND_BLUETOOTH_SCO_HEADSET.txt
+vendor/etc/nxp/VideoTelephony/Tx_ControlParams_NARROWBAND_EARPIECE.txt
+vendor/etc/nxp/VideoTelephony/Tx_ControlParams_NARROWBAND_SPEAKER.txt
+vendor/etc/nxp/VideoTelephony/Tx_ControlParams_NARROWBAND_WIRED_HEADPHONE.txt
+vendor/etc/nxp/VideoTelephony/Tx_ControlParams_NARROWBAND_WIRED_HEADSET.txt
+vendor/etc/nxp/VideoTelephony/Tx_ControlParams_WIDEBAND_BLUETOOTH_SCO_HEADSET_NREC_ON.txt
+vendor/etc/nxp/VideoTelephony/Tx_ControlParams_WIDEBAND_BLUETOOTH_SCO_HEADSET.txt
+vendor/etc/nxp/VideoTelephony/Tx_ControlParams_WIDEBAND_EARPIECE.txt
+vendor/etc/nxp/VideoTelephony/Tx_ControlParams_WIDEBAND_SPEAKER.txt
+vendor/etc/nxp/VideoTelephony/Tx_ControlParams_WIDEBAND_WIRED_HEADPHONE.txt
+vendor/etc/nxp/VideoTelephony/Tx_ControlParams_WIDEBAND_WIRED_HEADSET.txt
 vendor/etc/nxp/mVoIP/Rx_ControlParams_NARROWBAND_BLUETOOTH_SCO_HEADSET.txt
 vendor/etc/nxp/mVoIP/Rx_ControlParams_NARROWBAND_EARPIECE.txt
 vendor/etc/nxp/mVoIP/Rx_ControlParams_NARROWBAND_SPEAKER.txt
@@ -53,49 +94,54 @@ vendor/etc/nxp/mVoIPSec/Tx_ControlParams_WIDEBAND_EARPIECE.txt
 vendor/etc/nxp/mVoIPSec/Tx_ControlParams_WIDEBAND_SPEAKER.txt
 vendor/etc/nxp/mVoIPSec/Tx_ControlParams_WIDEBAND_WIRED_HEADPHONE.txt
 vendor/etc/nxp/mVoIPSec/Tx_ControlParams_WIDEBAND_WIRED_HEADSET.txt
-vendor/firmware/setfile_3l2.bin
-vendor/firmware/setfile_5e3.bin
+vendor/lib/liblvverx_3.27.02.so
+vendor/lib/liblvvetx_3.27.02.so
 
 # Bluetooth
 vendor/firmware/bcm43430A1_V0032.0076.hcd
 
-# Camera
-#lib/hw/camera.exynos5.so
-#lib/hw/camera.universal7580.so
-lib/libexynoscamera3.so
+### Camera
+lib/hw/camera.universal7580.so
 lib/libexynoscamera.so
-lib/libexynosv4l2.so
-lib/libsensorlistener.so
+lib/libhwjpeg.so
 lib/libuniplugin.so
+lib/libsensorlistener.so
+vendor/firmware/setfile_3l2.bin
+vendor/firmware/setfile_5e3.bin
 
-# Firmware
+# Chip Firmware
 etc/firmware/dbd2_fw.bin
-etc/firmware/dbmd2_vqe_fw_i2c.bin
-
-# Graphics
-lib/hw/gralloc.exynos5.so
-lib/hw/hwcomposer.exynos5.so
-lib/libexynosgscaler.so
-lib/libexynosscaler.so
-lib/libexynosutils.so
-vendor/lib/egl/libGLES_mali.so
 
 # GPS
 bin/gps.cer
 bin/gpsd
+lib/hw/gps.default.so:lib/hw/gps.universal7580.so
 lib/libwrappergps.so
 
-# Media
-vendor/firmware/fimc_is_fw2_imx240.bin
-vendor/firmware/mfc_fw.bin
-vendor/firmware/setfile_4e6.bin
-vendor/firmware/setfile_imx240.bin
+# Graphics
+vendor/lib/egl/libGLES_mali.so
 
-# Memory
-lib/libion.so
-lib/libion_exynos.so
+### Sensors
+lib/hw/sensors.universal7580.so
 
-# Mobicore
+### Widevine
+lib/liboemcrypto.so
+lib/libdrmdecrypt.so
+lib/libstagefright_hdcp.so
+lib/drm/libdrmwvmplugin.so
+vendor/lib/mediadrm/libwvdrmengine.so
+vendor/lib/libWVStreamControlAPI_L1.so
+vendor/lib/libwvdrm_L1.so
+vendor/lib/libwvm.so
+
+### RIL
+# opensource rild don't work well for dual sim
+bin/rild
+lib/libsecnativefeature.so
+lib/libsec-ril.so
+lib/libsec-ril-dsds.so
+
+### Mobicore
 app/FFFFFFFF000000000000000000000001.drbin
 app/mcRegistry/00060308060501020000000000000000.tlbin
 app/mcRegistry/07010000000000000000000000000000.tlbin
@@ -113,39 +159,4 @@ app/mcRegistry/ffffffffd0000000000000000000000a.tlbin
 app/mcRegistry/ffffffffd00000000000000000000016.tlbin
 app/mcRegistry/fffffffff0000000000000000000001e.tlbin
 bin/cs
-bin/mcDriverDaemon
-lib/libMcClient.so
 
-# Radio
-lib/libsec-ril.so
-lib/libsecril-client.so
-lib/libsecnativefeature.so
-
-# Sensors
-lib/hw/sensors.universal7580.so
-
-# Trustlet Connector (tlc)
-libtlc_comm.so
-libtlcotp.so
-libtlc_proxy.so
-libtlc_t2_ks_mi.so
-libtlc_tima_atn.so
-libtlc_tima_pkm.so
-libtlc_tima_tui.so
-libtlc_tz_ccm.so
-libtlc_tz_keystore.so
-
-# Widevine
-vendor/lib/drm/libdrmwvmplugin.so
-vendor/lib/libdrmdecrypt.so
-vendor/lib/libwvdrm_L1.so
-vendor/lib/libwvm.so
-vendor/lib/libWVStreamControlAPI_L1.so
-vendor/lib/mediadrm/libwvdrmengine.so
-
-# Wifi
-etc/wifi/bcmdhd_apsta.bin
-etc/wifi/bcmdhd_mfg.bin
-etc/wifi/bcmdhd_sta.bin
-etc/wifi/nvram_mfg.txt
-etc/wifi/nvram_net.txt
