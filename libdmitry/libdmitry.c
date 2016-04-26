@@ -139,7 +139,7 @@ void _ZN7android13SensorManagerC1Ev(void *sensorMgr)
 {
     void *string;
 
-    _ZN7android8String16C1EPKc(&string, "gps.universal5433");
+    _ZN7android8String16C1EPKc(&string, "gps.universal7580");
     _ZN7android13SensorManagerC1ERKNS_8String16E(sensorMgr, &string);
     _ZN7android8String16D1Ev(&string);
 }
