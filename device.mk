@@ -71,6 +71,9 @@ PRODUCT_PACKAGES += \
 PRODUCT_PACKAGES += \
     libxml2
 
+PRODUCT_PACKAGES += \
+    Snap
+
 # Filesystem management tools
 PRODUCT_PACKAGES += \
     make_ext4fs \
