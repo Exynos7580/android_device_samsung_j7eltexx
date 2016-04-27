@@ -13,3 +13,4 @@
 
 # VOLD
 /devices/13560000.dwmmc2/mmc_host/mmc*		auto         vfat default voldmanaged=extSdCard:auto,encryptable=userdata
+/devices/13510000.usb*				auto         vfat default voldmanaged=usb:auto
