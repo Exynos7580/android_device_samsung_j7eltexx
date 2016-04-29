@@ -47,9 +47,6 @@ TARGET_NO_BOOTLOADER := true
 # Exynos display
 BOARD_USES_VIRTUAL_DISPLAY := true
 
-# FIMG2D
-BOARD_USES_SKIA_FIMGAPI := true
-
 # Include an expanded selection of fonts
 EXTENDED_FONT_FOOTPRINT := true
 
