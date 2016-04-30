@@ -44,9 +44,6 @@ BOARD_HAVE_SAMSUNG_BLUETOOTH := true
 TARGET_BOOTLOADER_BOARD_NAME := universal7580
 TARGET_NO_BOOTLOADER := true
 
-# Exynos display
-BOARD_USES_VIRTUAL_DISPLAY := true
-
 # Include an expanded selection of fonts
 EXTENDED_FONT_FOOTPRINT := true
 
@@ -57,6 +54,16 @@ BOARD_USE_SAMSUNG_CAMERAFORMAT_NV21 := true
 # Graphics
 USE_OPENGL_RENDERER := true
 NUM_FRAMEBUFFER_SURFACE_BUFFERS := 5
+
+# Shader cache config options
+# Maximum size of the  GLES Shaders that can be cached for reuse.
+# Increase the size if shaders of size greater than 12KB are used.
+MAX_EGL_CACHE_KEY_SIZE := 12*1024
+
+# Maximum GLES shader cache size for each app to store the compiled shader
+# binaries. Decrease the size if RAM or Flash Storage size is a limitation
+# of the device.
+MAX_EGL_CACHE_SIZE := 2048*1024
 
 # (G)SCALER
 BOARD_USES_SCALER := true
