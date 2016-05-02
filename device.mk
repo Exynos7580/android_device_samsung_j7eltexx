@@ -82,8 +82,8 @@ PRODUCT_PACKAGES += \
 
 # Graphics
 PRODUCT_PACKAGES += \
-    gralloc.exynos5
-#    hwcomposer.exynos5
+    gralloc.exynos5 \
+    hwcomposer.exynos5
 
 # GPS
 PRODUCT_PACKAGES += \
@@ -179,4 +179,4 @@ $(call inherit-product, hardware/samsung_slsi-cm/exynos5/exynos5.mk)
 $(call inherit-product, hardware/samsung_slsi-cm/exynos7580/exynos7580.mk)
 
 # Get non-open-source specific aspects
-$(call inherit-product-if-exists, vendor/samsung/j7e3gxx/j7e3gxx-vendor.mk)
+$(call inherit-product-if-exists, vendor/samsung/j7eltexx/j7eltexx-vendor.mk)
