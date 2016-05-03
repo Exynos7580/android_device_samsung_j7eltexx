@@ -162,9 +162,6 @@ CHARGING_ENABLED_PATH := /sys/class/power_supply/battery/batt_lp_charging
 BOARD_SEPOLICY_DIRS := \
 	device/samsung/j7eltexx/sepolicy
 
-# Renderscript
-BOARD_OVERRIDE_RS_CPU_VARIANT_32 := cortex-a53
-
 # Sensors
 TARGET_NO_SENSOR_PERMISSION_CHECK := true
 
