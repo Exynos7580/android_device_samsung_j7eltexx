@@ -128,6 +128,7 @@ PRODUCT_PACKAGES += \
 PRODUCT_PACKAGES += \
     fstab.samsungexynos7580 \
     init.baseband.rc \
+    init.rilcommon.rc \
     init.samsungexynos7580.rc \
     init.samsungexynos7580.usb.rc \
     init.wifi.rc \
@@ -146,9 +147,6 @@ PRODUCT_PACKAGES += \
     AdvancedDisplay
 
 # Wifi
-PRODUCT_PACKAGES += \
-    init.sec.boot.sh
-
 PRODUCT_PACKAGES += \
     dhcpcd.conf \
     hostapd \
