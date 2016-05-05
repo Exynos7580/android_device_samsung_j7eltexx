@@ -506,6 +506,11 @@ static void select_devices(struct audio_device *adev)
     audio_route_update_mixer(adev->ar);
 
     /*
+     * Give the DSP some time before loading the new firmware modes
+     */
+    usleep(50);
+
+    /*
      * Apply the new audio routes and set volumes
      */
     if (output_route != NULL) {
