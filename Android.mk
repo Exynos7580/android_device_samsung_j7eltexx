@@ -19,13 +19,4 @@ LOCAL_PATH := $(call my-dir)
 ifneq ($(filter j7eltexx,$(TARGET_DEVICE)),)
 include $(call all-subdir-makefiles,$(LOCAL_PATH))
 
-# Create links for OpenCL files
-$(shell mkdir -p  $(TARGET_OUT)/vendor/lib; \
-    ln -sf /vendor/lib/egl/libGLES_mali.so \
-    $(TARGET_OUT)/vendor/lib/libOpenCL.so.1.1; \
-    ln -sf /system/vendor/lib/libOpenCL.so.1.1 \
-    $(TARGET_OUT)/vendor/lib/libOpenCL.so.1; \
-    ln -sf /system/vendor/lib/libOpenCL.so.1 \
-    $(TARGET_OUT)/vendor/lib/libOpenCL.so);
-
 endif
