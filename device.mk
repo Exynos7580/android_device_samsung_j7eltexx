@@ -19,7 +19,7 @@ LOCAL_PATH := device/samsung/j7eltexx
 $(call inherit-product, $(SRC_TARGET_DIR)/product/languages_full.mk)
 
 # Overlays
-#DEVICE_PACKAGE_OVERLAYS += device/samsung/j7eltexx/overlay
+DEVICE_PACKAGE_OVERLAYS += device/samsung/j7eltexx/overlay
 
 # Device uses high-density artwork where available
 PRODUCT_AAPT_CONFIG := normal
