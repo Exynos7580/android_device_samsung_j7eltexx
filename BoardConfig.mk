@@ -21,9 +21,6 @@ TARGET_OTA_ASSERT_DEVICE := j7e3g,j7e3gxx,j7elte,j7eltexx
 
 DEVICE_PATH := device/samsung/j7eltexx
 
-# Include path
-TARGET_SPECIFIC_HEADER_PATH := $(DEVICE_PATH)/include
-
 # CPU
 ENABLE_CPUSETS := true
 
