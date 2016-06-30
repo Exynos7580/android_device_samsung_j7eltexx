@@ -66,6 +66,7 @@ PRODUCT_PACKAGES += \
     init.rilcommon.rc \
     init.samsungexynos7580.rc \
     init.samsungexynos7580.usb.rc \
+    init.power.rc \
     init.wifi.rc \
     ueventd.samsungexynos7580.rc
 

@@ -3,6 +3,7 @@ import init.wifi.rc
 import init.baseband.rc
 import init.fac.rc
 import init.rilcommon.rc
+import init.power.rc
 
 on early-init
     mount debugfs /sys/kernel/debug /sys/kernel/debug
