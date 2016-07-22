@@ -1,70 +1,10 @@
 on boot
 
-    chown system system /sys/devices/system/cpu/cpu0/cpufreq/interactive/multi_enter_load
-    chmod 0660 /sys/devices/system/cpu/cpu0/cpufreq/interactive/multi_enter_load
-    chown system system /sys/devices/system/cpu/cpu0/cpufreq/interactive/multi_enter_time
-    chmod 0660 /sys/devices/system/cpu/cpu0/cpufreq/interactive/multi_enter_time
-    chown system system /sys/devices/system/cpu/cpu0/cpufreq/interactive/multi_exit_load
-    chmod 0660 /sys/devices/system/cpu/cpu0/cpufreq/interactive/multi_exit_load
-    chown system system /sys/devices/system/cpu/cpu0/cpufreq/interactive/multi_exit_time
-    chmod 0660 /sys/devices/system/cpu/cpu0/cpufreq/interactive/multi_exit_time
-    chown system system /sys/devices/system/cpu/cpu0/cpufreq/interactive/single_enter_load
-    chmod 0660 /sys/devices/system/cpu/cpu0/cpufreq/interactive/single_enter_load
-    chown system system /sys/devices/system/cpu/cpu0/cpufreq/interactive/single_enter_time
-    chmod 0660 /sys/devices/system/cpu/cpu0/cpufreq/interactive/single_enter_time
-    chown system system /sys/devices/system/cpu/cpu0/cpufreq/interactive/single_exit_load
-    chmod 0660 /sys/devices/system/cpu/cpu0/cpufreq/interactive/single_exit_load
-    chown system system /sys/devices/system/cpu/cpu0/cpufreq/interactive/single_exit_time
-    chmod 0660 /sys/devices/system/cpu/cpu0/cpufreq/interactive/single_exit_time
-    chown system system /sys/devices/system/cpu/cpu0/cpufreq/interactive/mode
-    chmod 0660 /sys/devices/system/cpu/cpu0/cpufreq/interactive/mode
-    chown system system /sys/devices/system/cpu/cpu0/cpufreq/interactive/enforced_mode
-    chmod 0660 /sys/devices/system/cpu/cpu0/cpufreq/interactive/enforced_mode
-    chown system system /sys/devices/system/cpu/cpu0/cpufreq/interactive/param_index
-    chmod 0660 /sys/devices/system/cpu/cpu0/cpufreq/interactive/param_index
-    chown system system /sys/devices/system/cpu/cpu0/cpufreq/interactive/cpu_util
-    chmod 0660 /sys/devices/system/cpu/cpu0/cpufreq/interactive/cpu_util
-    chown system system /sys/devices/system/cpu/cpu0/cpufreq/interactive/multi_cluster0_min_freq
-    chmod 0660 /sys/devices/system/cpu/cpu0/cpufreq/interactive/multi_cluster0_min_freq
-    chown system system /sys/devices/system/cpu/cpu0/cpufreq/interactive/single_cluster0_min_freq
-    chmod 0660 /sys/devices/system/cpu/cpu0/cpufreq/interactive/single_cluster0_min_freq
-
-    chown system system /sys/devices/system/cpu/cpu4/cpufreq/interactive/multi_enter_load
-    chmod 0660 /sys/devices/system/cpu/cpu4/cpufreq/interactive/multi_enter_load
-    chown system system /sys/devices/system/cpu/cpu4/cpufreq/interactive/multi_enter_time
-    chmod 0660 /sys/devices/system/cpu/cpu4/cpufreq/interactive/multi_enter_time
-    chown system system /sys/devices/system/cpu/cpu4/cpufreq/interactive/multi_exit_load
-    chmod 0660 /sys/devices/system/cpu/cpu4/cpufreq/interactive/multi_exit_load
-    chown system system /sys/devices/system/cpu/cpu4/cpufreq/interactive/multi_exit_time
-    chmod 0660 /sys/devices/system/cpu/cpu4/cpufreq/interactive/multi_exit_time
-    chown system system /sys/devices/system/cpu/cpu4/cpufreq/interactive/single_enter_load
-    chmod 0660 /sys/devices/system/cpu/cpu4/cpufreq/interactive/single_enter_load
-    chown system system /sys/devices/system/cpu/cpu4/cpufreq/interactive/single_enter_time
-    chmod 0660 /sys/devices/system/cpu/cpu4/cpufreq/interactive/single_enter_time
-    chown system system /sys/devices/system/cpu/cpu4/cpufreq/interactive/single_exit_load
-    chmod 0660 /sys/devices/system/cpu/cpu4/cpufreq/interactive/single_exit_load
-    chown system system /sys/devices/system/cpu/cpu4/cpufreq/interactive/single_exit_time
-    chmod 0660 /sys/devices/system/cpu/cpu4/cpufreq/interactive/single_exit_time
-    chown system system /sys/devices/system/cpu/cpu4/cpufreq/interactive/mode
-    chmod 0660 /sys/devices/system/cpu/cpu4/cpufreq/interactive/mode
-    chown system system /sys/devices/system/cpu/cpu4/cpufreq/interactive/enforced_mode
-    chmod 0660 /sys/devices/system/cpu/cpu4/cpufreq/interactive/enforced_mode
-    chown system system /sys/devices/system/cpu/cpu4/cpufreq/interactive/param_index
-    chmod 0660 /sys/devices/system/cpu/cpu4/cpufreq/interactive/param_index
-    chown system system /sys/devices/system/cpu/cpu4/cpufreq/interactive/cpu_util
-    chmod 0660 /sys/devices/system/cpu/cpu4/cpufreq/interactive/cpu_util
-    chown system system /sys/devices/system/cpu/cpu4/cpufreq/interactive/multi_cluster0_min_freq
-    chmod 0660 /sys/devices/system/cpu/cpu4/cpufreq/interactive/multi_cluster0_min_freq
-    chown system system /sys/devices/system/cpu/cpu4/cpufreq/interactive/single_cluster0_min_freq
-    chmod 0660 /sys/devices/system/cpu/cpu4/cpufreq/interactive/single_cluster0_min_freq
-
-
-    # Change permission for dvfshelper
-    chown radio system /sys/power/cpufreq_table
-    chmod 0664 /sys/power/cpufreq_table
+	chown radio system /sys/power/cpufreq_table
     chown radio system /sys/power/cpufreq_min_limit
-    chmod 0664 /sys/power/cpufreq_min_limit
     chown radio system /sys/power/cpufreq_max_limit
+    chmod 0664 /sys/power/cpufreq_table
+    chmod 0664 /sys/power/cpufreq_min_limit
     chmod 0664 /sys/power/cpufreq_max_limit
 
     chown radio system /sys/devices/11400000.mali/dvfs_table
@@ -74,40 +14,31 @@ on boot
     chmod 0664 /sys/devices/11400000.mali/dvfs_min_lock
     chmod 0664 /sys/devices/11400000.mali/dvfs_max_lock
 
-    chown radio system /sys/class/devfreq/bus_mif.7/available_frequencies
-    chown radio system /sys/class/devfreq/bus_mif.7/min_freq
-    chown radio system /sys/class/devfreq/bus_mif.7/max_freq
-    chmod 0664 /sys/class/devfreq/bus_mif.7/available_frequencies
-    chmod 0664 /sys/class/devfreq/bus_mif.7/min_freq
-    chmod 0664 /sys/class/devfreq/bus_mif.7/max_freq
+    chown radio system /sys/class/devfreq/bus_mif.6/available_frequencies
+    chown radio system /sys/class/devfreq/bus_mif.6/min_freq
+    chown radio system /sys/class/devfreq/bus_mif.6/max_freq
+    chmod 0664 /sys/class/devfreq/bus_mif.6/available_frequencies
+    chmod 0664 /sys/class/devfreq/bus_mif.6/min_freq
+    chmod 0664 /sys/class/devfreq/bus_mif.6/max_freq
 
-    chown radio system /sys/class/devfreq/bus_int.6/available_frequencies
-    chown radio system /sys/class/devfreq/bus_int.6/min_freq
-    chown radio system /sys/class/devfreq/bus_int.6/max_freq
-    chmod 0664 /sys/class/devfreq/bus_int.6/available_frequencies
-    chmod 0664 /sys/class/devfreq/bus_int.6/min_freq
-    chmod 0664 /sys/class/devfreq/bus_int.6/max_freq
+    chown radio system /sys/class/devfreq/bus_int.5/available_frequencies
+    chown radio system /sys/class/devfreq/bus_int.5/min_freq
+    chown radio system /sys/class/devfreq/bus_int.5/max_freq
+    chmod 0664 /sys/class/devfreq/bus_int.5/available_frequencies
+    chmod 0664 /sys/class/devfreq/bus_int.5/min_freq
+    chmod 0664 /sys/class/devfreq/bus_int.5/max_freq
     
     
    # Permission for CHARGING
    mkdir /efs/Battery 0775 radio system
    chown radio system /efs/Battery
    chmod 0775 /efs/Battery
-   copy /system/vendor/firmware/battery_data.dat /efs/Battery/battery_data.dat
-   chmod 0400 /efs/Battery/battery_data.dat
-   write /sys/class/power_supply/battery/batt_update_data "/efs/Battery/battery_data.dat"
-   chown system radio /sys/class/power_supply/battery/batt_ext_dev_chg
    chown system radio /sys/class/power_supply/battery/batt_reset_soc
    chown system radio /sys/class/power_supply/battery/batt_slate_mode
    chown system radio /sys/class/power_supply/battery/factory_mode
    chown system radio /sys/class/power_supply/battery/siop_level
-   chown system radio /sys/class/power_supply/battery/siop_event
    chown system radio /sys/class/power_supply/battery/wc_enable
-   chown system nfc /sys/class/power_supply/battery/wc_control
-   chown system nfc /sys/class/power_supply/battery/wc_control_cnt
    chown system radio /sys/class/power_supply/battery/update
-   chown system radio /sys/class/power_supply/battery/factory_mode_relieve
-   chown system radio /sys/class/power_supply/battery/factory_mode_bypass
    chown media sdcard_rw /sys/class/power_supply/battery/store_mode
    chown sdcard_rw sdcard_rw /sys/class/power_supply/battery/call
    chown sdcard_rw sdcard_rw /sys/class/power_supply/battery/video
@@ -124,98 +55,19 @@ on boot
    chown system radio /sys/class/power_supply/battery/lte
    chown system radio /sys/class/power_supply/battery/lcd
    chown system radio /sys/class/power_supply/ps/status
-   chmod 0664 /sys/class/power_supply/battery/wc_control
-   chmod 0664 /sys/class/power_supply/battery/wc_control_cnt
    chmod 0664 /sys/class/power_supply/ps/status
    chmod 0664 /sys/class/power_supply/battery/batt_temp_table
    chown system radio /sys/class/power_supply/battery/batt_temp_table
    chown system radio /sys/class/power_supply/battery/batt_high_current_usb
-   chown system radio /sys/class/power_supply/battery/batt_inbat_voltage
    chmod 0664 /sys/class/power_supply/battery/batt_high_current_usb
-   chown system radio /sys/class/power_supply/battery/hmt_ta_connected
-   chown system radio /sys/class/power_supply/battery/hmt_ta_charge
-   chown system radio /sys/class/power_supply/battery/battery_cycle
-   chown system radio /sys/class/power_supply/otg/online
-   chmod 0664 /sys/class/power_supply/otg/online
-   chown system radio /sys/class/power_supply/max77833-charger/charge_otg_control
-   chown system radio /sys/class/power_supply/battery/charge_otg_control
-   chown system radio /sys/class/power_supply/battery/charge_uno_control
-   chown system radio /sys/class/power_supply/battery/batt_wireless_firmware_update
-   chown system radio /sys/class/power_supply/battery/otp_firmware_result
-   chown system radio /sys/class/power_supply/battery/wc_ic_grade
-   chown system radio /sys/class/power_supply/battery/otp_firmware_ver_bin
-   chown system radio /sys/class/power_supply/battery/otp_firmware_ver
-   chown system radio /sys/class/power_supply/battery/tx_firmware_result
-   chown system radio /sys/class/power_supply/battery/batt_tx_firmware
-   chown system radio /sys/class/power_supply/battery/batt_hv_wireless_status
-   chown system radio /sys/class/power_supply/battery/batt_hv_wireless_pad_ctrl
-   chmod 0664 /sys/class/power_supply/max77833-charger/charge_otg_control
-   chmod 0664 /sys/class/power_supply/battery/charge_otg_control
-   chmod 0664 /sys/class/power_supply/battery/charge_uno_control
-   chmod 0664 /sys/class/power_supply/battery/batt_wireless_firmware_update
-   chmod 0664 /sys/class/power_supply/battery/otp_firmware_result
-   chmod 0664 /sys/class/power_supply/battery/wc_ic_grade
-   chmod 0664 /sys/class/power_supply/battery/otp_firmware_ver_bin
-   chmod 0664 /sys/class/power_supply/battery/otp_firmware_ver
-   chmod 0664 /sys/class/power_supply/battery/tx_firmware_result
-   chmod 0664 /sys/class/power_supply/battery/tx_firmware_ver
-   chmod 0664 /sys/class/power_supply/battery/batt_tx_firmware
-   chmod 0664 /sys/class/power_supply/battery/batt_hv_wireless_status
-   chmod 0664 /sys/class/power_supply/battery/batt_hv_wireless_pad_ctrl
-   chown system radio /sys/class/power_supply/battery/tx_firmware_result
-   chown system radio /sys/class/power_supply/battery/batt_tune_chg_limit_cur
-   chown system radio /sys/class/power_supply/battery/batt_tune_chg_temp_high
-   chown system radio /sys/class/power_supply/battery/batt_tune_chg_temp_rec
-   chown system radio /sys/class/power_supply/battery/batt_tune_coil_limit_cur
-   chown system radio /sys/class/power_supply/battery/batt_tune_coil_temp_high
-   chown system radio /sys/class/power_supply/battery/batt_tune_coil_temp_rec
-   chown system radio /sys/class/power_supply/battery/batt_tune_fast_charge_current
-   chown system radio /sys/class/power_supply/battery/batt_tune_float_voltage
-   chown system radio /sys/class/power_supply/battery/batt_tune_intput_charge_current
-   chown system radio /sys/class/power_supply/battery/batt_tune_temp_high_event
-   chown system radio /sys/class/power_supply/battery/batt_tune_temp_high_normal
-   chown system radio /sys/class/power_supply/battery/batt_tune_temp_high_rec_event
-   chown system radio /sys/class/power_supply/battery/batt_tune_temp_high_rec_normal
-   chown system radio /sys/class/power_supply/battery/batt_tune_temp_low_event
-   chown system radio /sys/class/power_supply/battery/batt_tune_temp_low_normal
-   chown system radio /sys/class/power_supply/battery/batt_tune_temp_low_rec_event
-   chown system radio /sys/class/power_supply/battery/batt_tune_temp_low_rec_normal
-   chown system radio /sys/class/power_supply/battery/batt_tune_ui_term_cur_1st
-   chown system radio /sys/class/power_supply/battery/batt_tune_ui_term_cur_2nd
-   chmod 0664 /sys/class/power_supply/battery/batt_tune_chg_limit_cur
-   chmod 0664 /sys/class/power_supply/battery/batt_tune_chg_temp_high
-   chmod 0664 /sys/class/power_supply/battery/batt_tune_chg_temp_rec
-   chmod 0664 /sys/class/power_supply/battery/batt_tune_coil_limit_cur
-   chmod 0664 /sys/class/power_supply/battery/batt_tune_coil_temp_high
-   chmod 0664 /sys/class/power_supply/battery/batt_tune_coil_temp_rec
-   chmod 0664 /sys/class/power_supply/battery/batt_tune_fast_charge_current
-   chmod 0664 /sys/class/power_supply/battery/batt_tune_float_voltage
-   chmod 0664 /sys/class/power_supply/battery/batt_tune_intput_charge_current
-   chmod 0664 /sys/class/power_supply/battery/batt_tune_temp_high_event
-   chmod 0664 /sys/class/power_supply/battery/batt_tune_temp_high_normal
-   chmod 0664 /sys/class/power_supply/battery/batt_tune_temp_high_rec_event
-   chmod 0664 /sys/class/power_supply/battery/batt_tune_temp_high_rec_normal
-   chmod 0664 /sys/class/power_supply/battery/batt_tune_temp_low_event
-   chmod 0664 /sys/class/power_supply/battery/batt_tune_temp_low_normal
-   chmod 0664 /sys/class/power_supply/battery/batt_tune_temp_low_rec_event
-   chmod 0664 /sys/class/power_supply/battery/batt_tune_temp_low_rec_normal
-   chmod 0664 /sys/class/power_supply/battery/batt_tune_ui_term_cur_1st
-   chmod 0664 /sys/class/power_supply/battery/batt_tune_ui_term_cur_2nd
 
 
 
 on charger
     chmod 0664 /sys/class/power_supply/battery/batt_temp_table
     chown system radio /sys/class/power_supply/battery/batt_temp_table
-    chmod 0664 /sys/class/power_supply/battery/batt_capacity_max
-    chown system radio /sys/class/power_supply/battery/batt_capacity_max
-    chmod 0664 /sys/class/power_supply/battery/battery_cycle
-    chown system radio /sys/class/power_supply/battery/battery_cycle
     chown radio system /efs
     chmod 0771 /efs
     mkdir /efs/Battery 0775 radio system
     chown radio system /efs/Battery
     chmod 0775 /efs/Battery
-    copy /system/vendor/firmware/battery_data.dat /efs/Battery/battery_data.dat
-    chmod 0400 /efs/Battery/battery_data.dat
-    write /sys/class/power_supply/battery/batt_update_data "/efs/Battery/battery_data.dat"
