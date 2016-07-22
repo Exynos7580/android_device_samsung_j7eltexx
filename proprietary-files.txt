@@ -159,4 +159,8 @@ app/mcRegistry/ffffffffd0000000000000000000000a.tlbin
 app/mcRegistry/ffffffffd00000000000000000000016.tlbin
 app/mcRegistry/fffffffff0000000000000000000001e.tlbin
 bin/cs
+bin/mcDriverDaemon
+lib/libMcClient.so
+lib/libMcRegistry.so
+
 
