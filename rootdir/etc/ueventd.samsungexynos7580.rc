@@ -110,26 +110,25 @@
 /dev/umts*                0660   system     radio
 
 # Dynamic Cluster Hotplug
-/sys/devices/system/cpu/cpu0/cpufreq	interactive/target_loads	0660	system	system
-/sys/devices/system/cpu/cpu0/cpufreq	interactive/above_hispeed_delay	0660	system	system
-/sys/devices/system/cpu/cpu0/cpufreq	interactive/hispeed_freq	0660	system	system
-/sys/devices/system/cpu/cpu0/cpufreq	interactive/go_hispeed_load	0660	system	system
-/sys/devices/system/cpu/cpu0/cpufreq	interactive/min_sample_time	0660	system	system
-/sys/devices/system/cpu/cpu0/cpufreq	interactive/timer_rate	0660	system	system
-/sys/devices/system/cpu/cpu0/cpufreq	interactive/timer_slack	0660	system	system
-/sys/devices/system/cpu/cpu0/cpufreq	interactive/boost	0660	system	system
-/sys/devices/system/cpu/cpu0/cpufreq	interactive/boostpulse	0200	system	system
-/sys/devices/system/cpu/cpu0/cpufreq	interactive/boostpulse_duration	0660	system	system
-/sys/devices/system/cpu/cpu0/cpufreq	interactive/io_is_busy	0660	system	system
-
-/sys/devices/system/cpu/cpu4/cpufreq	interactive/target_loads	0660	system	system
-/sys/devices/system/cpu/cpu4/cpufreq	interactive/above_hispeed_delay	0660	system	system
-/sys/devices/system/cpu/cpu4/cpufreq	interactive/hispeed_freq	0660	system	system
-/sys/devices/system/cpu/cpu4/cpufreq	interactive/go_hispeed_load	0660	system	system
-/sys/devices/system/cpu/cpu4/cpufreq	interactive/min_sample_time	0660	system	system
-/sys/devices/system/cpu/cpu4/cpufreq	interactive/timer_rate	0660	system	system
-/sys/devices/system/cpu/cpu4/cpufreq	interactive/timer_slack	0660	system	system
-/sys/devices/system/cpu/cpu4/cpufreq	interactive/boost	0660	system	system
-/sys/devices/system/cpu/cpu4/cpufreq	interactive/boostpulse	0200	system	system
-/sys/devices/system/cpu/cpu4/cpufreq	interactive/boostpulse_duration	0660	system	system
-/sys/devices/system/cpu/cpu4/cpufreq	interactive/io_is_busy	0660	system	system
+/sys/devices/system/cpu/cpu0/cpufreq/interactive/target_loads	0660	system	system
+/sys/devices/system/cpu/cpu0/cpufreq/interactive/above_hispeed_delay	0660	system	system
+/sys/devices/system/cpu/cpu0/cpufreq/interactive/hispeed_freq	0660	system	system
+/sys/devices/system/cpu/cpu0/cpufreq/interactive/go_hispeed_load	0660	system	system
+/sys/devices/system/cpu/cpu0/cpufreq/interactive/min_sample_time	0660	system	system
+/sys/devices/system/cpu/cpu0/cpufreq/interactive/timer_rate	0660	system	system
+/sys/devices/system/cpu/cpu0/cpufreq/interactive/timer_slack	0660	system	system
+/sys/devices/system/cpu/cpu0/cpufreq/interactive/boost	0660	system	system
+/sys/devices/system/cpu/cpu0/cpufreq/interactive/boostpulse	0200	system	system
+/sys/devices/system/cpu/cpu0/cpufreq/interactive/boostpulse_duration	0660	system	system
+/sys/devices/system/cpu/cpu0/cpufreq/interactive/io_is_busy	0660	system	system
+/sys/devices/system/cpu/cpu4/cpufreq/interactive/target_loads	0660	system	system
+/sys/devices/system/cpu/cpu4/cpufreq/interactive/above_hispeed_delay	0660	system	system
+/sys/devices/system/cpu/cpu4/cpufreq/interactive/hispeed_freq	0660	system	system
+/sys/devices/system/cpu/cpu4/cpufreq/interactive/go_hispeed_load	0660	system	system
+/sys/devices/system/cpu/cpu4/cpufreq/interactive/min_sample_time	0660	system	system
+/sys/devices/system/cpu/cpu4/cpufreq/interactive/timer_rate	0660	system	system
+/sys/devices/system/cpu/cpu4/cpufreq/interactive/timer_slack	0660	system	system
+/sys/devices/system/cpu/cpu4/cpufreq/interactive/boost	0660	system	system
+/sys/devices/system/cpu/cpu4/cpufreq/interactive/boostpulse	0200	system	system
+/sys/devices/system/cpu/cpu4/cpufreq/interactive/boostpulse_duration	0660	system	system
+/sys/devices/system/cpu/cpu4/cpufreq/interactive/io_is_busy	0660	system	system
