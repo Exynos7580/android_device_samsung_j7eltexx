@@ -27,6 +27,40 @@ on post-fs-data
 
     setprop vold.post_fs_data_done 1
 
+    # icd
+    check_icd
+    chown system system /dev/icd
+    chmod 0644 /dev/icd
+    chown system system /dev/icdr
+    chmod 0644 /dev/icdr
+    chown system system /dev/tzic
+	restorecon /dev/icd
+    restorecon /dev/icdr
+
+    # hatp
+    mkdir /data/misc/radio/hatp 0755 radio system
+
+    # h2k
+    mkdir /efs/cpk 0771 radio system
+    chmod 0644 /efs/redata.bin
+    chmod 0644 /efs/cpk/redata.bin
+    chown radio radio /efs/h2k.dat
+    chown radio radio /efs/cpk/h2k.dat
+    chmod 0644 /efs/h2k.dat
+    chmod 0644 /efs/cpk/h2k.dat
+    chown system system /efs/drm/h2k
+
+    # mobicore
+    mkdir /data/app/mcRegistry 0775 system system
+    mkdir /efs/TEE  0770 radio system
+
+
+# [ SEC_MM_DRM
+    # Added drm folder to copy drm plugins
+    mkdir /system/lib/drm 0775
+    chown root root /system/lib/drm
+    chmod 0775 /system/lib/drm
+# ]
 
 # Permissions for audio
     chown system radio /sys/class/audio/earjack/select_jack
@@ -55,6 +89,9 @@ on boot
     # to improve allocation times
     #write /proc/sys/vm/min_free_kbytes 32768
     #write /proc/sys/vm/min_free_order_shift 1
+
+    # mobicore
+    export MC_AUTH_TOKEN_PATH /efs
 
     #mount debugfs /sys/kernel/debug /sys/kernel/debug
 #    setprop ro.radio.noril yes
@@ -389,6 +426,12 @@ service BCS-daemon /system/bin/connfwexe
     user root
     group system radio inet net_raw    
 
+# MobiCore startup
+service mobicore /system/bin/mcDriverDaemon -r /system/app/FFFFFFFF000000000000000000000001.drbin -r /system/app/mcRegistry/ffffffffd0000000000000000000000a.tlbin -r /system/app/mcRegistry/ffffffffd00000000000000000000016.tlbin
+    class core
+    user system
+    group system
+
 # DRK/CS service
 service cs_service /system/bin/cs
     class main
@@ -403,28 +446,16 @@ service prepare_param /system/bin/prepare_param.sh /dev/block/platform/13540000.
     seclabel u:r:prepare_param:s0
     oneshot
 
+# icd
+service icd /system/bin/icd
+    class main
+    user system
+    group system log
+    onrestart check_icd
+    oneshot
+
 on property:sys.mobicoredaemon.enable=true
     start cs_service
-
-# umount service 
-service umount_service /system/bin/umount /preload 
-    disabled 
-    oneshot
-
-# Support Preload install apks 
-on property:persist.sys.storage_preload=1 
-    mount ext4 /dev/block/platform/13540000.dwmmc0/by-name/HIDDEN /preload nosuid nodev ro barrier=1 
-    setprop storage.preload.complete 1 
- 
-on property:persist.sys.storage_preload=0 
-    start umount_service
-
-# SSWAP
-service swapon /sbin/sswap -s
-    class core
-    user root
-    group root
-    oneshot
 
 # Bluetooth dhcpcd config
 service dhcpcd_bt-pan /system/bin/dhcpcd -ABKL
