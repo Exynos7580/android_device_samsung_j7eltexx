@@ -19,6 +19,7 @@ dalvik.vm.heapmaxfree=8m
 ro.hwui.texture_cache_size=24
 ro.hwui.layer_cache_size=16
 ro.hwui.path_cache_size=4
+ro.hwui.texture_cache_flushrate=0.4
 ro.hwui.shape_cache_size=1
 ro.hwui.gradient_cache_size=0.5
 ro.hwui.drop_shadow_cache_size=2
@@ -28,3 +29,6 @@ ro.hwui.text_small_cache_height=512
 ro.hwui.text_large_cache_width=2048
 ro.hwui.text_large_cache_height=1024
 ro.hwui.fbo_cache_size=8
+
+# FRP
+#ro.frp.pst=/dev/block/persistent
