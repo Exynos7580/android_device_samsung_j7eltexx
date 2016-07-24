@@ -548,6 +548,12 @@ service SMD-daemon /system/bin/smdexe
     user root
     group system radio inet net_raw
 
+# start multiple rilds based on multisim property
+on property:ro.multisim.simslotcount=2
+    stop ril-daemon
+    start ril-daemon
+    start ril-daemon1	
+
 on fs
 # DIAG
 service DIAG-daemon /system/bin/diagexe
