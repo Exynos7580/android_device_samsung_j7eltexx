@@ -98,7 +98,7 @@ vendor/lib/liblvverx_3.27.02.so
 vendor/lib/liblvvetx_3.27.02.so
 
 # Bluetooth
-vendor/firmware/bcm43430A1_V0032.0076.hcd
+vendor/firmware/bcm43438A1_V0051.0218.hcd
 
 ### Camera
 lib/hw/camera.universal7580.so
@@ -108,9 +108,6 @@ lib/libuniplugin.so
 lib/libsensorlistener.so
 vendor/firmware/setfile_3l2.bin
 vendor/firmware/setfile_5e3.bin
-
-# Chip Firmware
-etc/firmware/dbd2_fw.bin
 
 # GPS
 bin/gps.cer
@@ -144,19 +141,27 @@ lib/libsec-ril-dsds.so
 ### Mobicore
 app/FFFFFFFF000000000000000000000001.drbin
 app/mcRegistry/00060308060501020000000000000000.tlbin
+app/mcRegistry/02010000080300030000000000000000.tlbin
 app/mcRegistry/07010000000000000000000000000000.tlbin
 app/mcRegistry/07060000000000000000000000000000.tlbin
-app/mcRegistry/ffffffff000000000000000000000005.tlbin
+app/mcRegistry/08130000000000000000000000000000.tlbin
 app/mcRegistry/ffffffff00000000000000000000000a.tlbin
 app/mcRegistry/ffffffff00000000000000000000000c.tlbin
 app/mcRegistry/ffffffff00000000000000000000000d.tlbin
 app/mcRegistry/ffffffff00000000000000000000000f.tlbin
+app/mcRegistry/ffffffff000000000000000000000004.tlbin
+app/mcRegistry/ffffffff000000000000000000000005.tlbin
 app/mcRegistry/ffffffff000000000000000000000012.tlbin
 app/mcRegistry/ffffffff000000000000000000000013.tlbin
 app/mcRegistry/ffffffff000000000000000000000016.tlbin
+app/mcRegistry/ffffffff000000000000000000000017.tlbin
 app/mcRegistry/ffffffff000000000000000000000019.tlbin
+app/mcRegistry/ffffffff000000000000000000000021.tlbin
+app/mcRegistry/ffffffff000000000000000000000041.tlbin
 app/mcRegistry/ffffffffd0000000000000000000000a.tlbin
+app/mcRegistry/ffffffffd00000000000000000000004.tlbin
 app/mcRegistry/ffffffffd00000000000000000000016.tlbin
+app/mcRegistry/FFFFFFFFD00000000000000000000016.tlbin
 app/mcRegistry/fffffffff0000000000000000000001e.tlbin
 bin/cs
 bin/mcDriverDaemon
