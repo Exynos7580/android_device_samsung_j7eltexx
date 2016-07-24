@@ -57,7 +57,7 @@ on post-fs-data
     chown system system /efs/drm/h2k
 
     # icd
-    check_icd
+    #check_icd
     chown system system /dev/icd
     chmod 0644 /dev/icd
     chown system system /dev/icdr
@@ -215,7 +215,7 @@ on boot
     chmod 0660 /dev/pn547
     chown nfc nfc /dev/pn547
     chown nfc /dev/pn547
-    chgrp nfc /dev/pn547
+    #chgrp nfc /dev/pn547
 
     # NFC_BROADCOM
     chmod 0600 /dev/bcm2079x
@@ -475,6 +475,7 @@ service mobicore /system/bin/mcDriverDaemon -r /system/app/FFFFFFFF0000000000000
     class core
     user system
     group system
+    oneshot
 
 #
 #service drm /system/bin/drmserver

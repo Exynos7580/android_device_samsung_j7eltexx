@@ -36,7 +36,7 @@ on fs
     #For cpefs partition
     mkdir /cpefs 0771 radio system
     wait /dev/block/platform/13540000.dwmmc0/by-name/CPEFS
-    check_fs /dev/block/platform/13540000.dwmmc0/by-name/CPEFS ext4
+    #check_fs /dev/block/platform/13540000.dwmmc0/by-name/CPEFS ext4
     mount ext4 /dev/block/platform/13540000.dwmmc0/by-name/CPEFS /cpefs noatime nosuid nodev barrier=1
     chown radio system /cpefs
     chmod 0771 /cpefs
