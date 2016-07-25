@@ -4,6 +4,9 @@ on init
     chown system system /proc/reset_reason
     chmod 0600 /proc/reset_reason
 
+    # To sync between sdcard & installd
+    setprop installd.sdcard_manipulate_done 0
+
 on post-fs-data
 
     # Latin SSMS feature
