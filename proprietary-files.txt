@@ -1,7 +1,9 @@
 # Audio
-etc/firmware/dbmd2_vqe_fw_i2c.bin
+#etc/firmware/dbmd2_vqe_fw_i2c.bin
 
 ### Wifi
+bin/mfgloader
+bin/wlandutservice
 etc/wifi/bcmdhd_apsta.bin
 etc/wifi/bcmdhd_mfg.bin
 etc/wifi/bcmdhd_sta.bin
@@ -98,7 +100,8 @@ vendor/lib/liblvverx_3.27.02.so
 vendor/lib/liblvvetx_3.27.02.so
 
 # Bluetooth
-vendor/firmware/bcm43438A1_V0051.0218.hcd
+vendor/firmware/bcm43438A1_V0051.0221.hcd
+vendor/firmware/bcm43455_V0106.0154.hcd
 
 ### Camera
 lib/hw/camera.universal7580.so
@@ -139,6 +142,7 @@ lib/libsec-ril.so
 lib/libsec-ril-dsds.so
 
 ### Mobicore
+app/020a0000000000000000000000000000.drbin
 app/FFFFFFFF000000000000000000000001.drbin
 app/mcRegistry/00060308060501020000000000000000.tlbin
 app/mcRegistry/02010000080300030000000000000000.tlbin
@@ -168,4 +172,6 @@ bin/mcDriverDaemon
 lib/libMcClient.so
 lib/libMcRegistry.so
 
+#misc
+bin/exyrngd
 
