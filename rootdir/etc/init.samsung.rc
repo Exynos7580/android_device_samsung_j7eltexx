@@ -89,27 +89,6 @@ on post-fs-data
     chmod 0775 /dev/socket/uibc
 
 # [ SEC_MM_DRM
-    # DRM directory creation
-    mkdir /system/etc/security/.drm 0775
-    chown root root /system/etc/security/.drm
-    chmod 0775 /system/etc/security/.drm
-
-    # Added for Playready DRM Support
-    mkdir /data/data/.drm 0775
-    chown drm system /data/data/.drm
-    chmod 0775 /data/data/.drm
-    mkdir /data/data/.drm/.playready 0775
-    chown drm system /data/data/.drm/.playready
-    chmod 0775 /data/data/.drm/.playready
-
-    # Added for Playready DCM DRM Support
-    mkdir /data/.dcmdrm 0775
-    chown drm system /data/.dcmdrm
-    chmod 0775 /data/.dcmdrm
-    mkdir /data/.dcmdrm/.playready 0775
-    chown drm system /data/.dcmdrm/.playready
-    chmod 0775 /data/.dcmdrm/.playready
-
     # Added drm folder to copy drm plugins
     mkdir /system/lib/drm 0775
     chown root root /system/lib/drm
@@ -522,30 +501,30 @@ service dhcpcd_usb0 /system/bin/dhcpcd -ABKL
     oneshot
     
 # for Wi-Fi only models
-on property:ro.radio.noril=yes
-    stop ril-daemon
+#on property:ro.radio.noril=yes
+#    stop ril-daemon
 
-service ril-daemon /system/bin/rild
-    class main
-    socket rild stream 660 root radio
-    socket rild-debug stream 660 radio system
-    socket rild-cas stream 660  casdrm mmb
-    user root
-    group radio cache inet misc audio sdcard_r sdcard_rw log vpn system
-    onrestart restart cpboot-daemon
+#service ril-daemon /system/bin/rild
+#    class main
+#    socket rild stream 660 root radio
+#    socket rild-debug stream 660 radio system
+#    socket rild-cas stream 660  casdrm mmb
+#    user root
+#    group radio cache inet misc audio sdcard_r sdcard_rw log vpn system wakelock
+#    onrestart restart cpboot-daemon
 
-service ril-daemon1 /system/bin/rild -c 2
-    class main
-    socket rild2 stream 660 root radio
-    socket rild-debug2 stream 660 radio system
-    user root
-    group radio cache inet misc audio sdcard_r sdcard_rw log
-    disabled
-    onrestart restart cpboot-daemon
+#service ril-daemon1 /system/bin/rild -c 2
+#    class main
+#    socket rild2 stream 660 root radio
+#    socket rild-debug2 stream 660 radio system
+#    user root
+#    group radio cache inet misc audio sdcard_r sdcard_rw log wakelock
+#    disabled
+#    onrestart restart cpboot-daemon
 
-on property:persist.sys.cpboot=disable
-    stop ril-daemon
-    stop cpboot-daemon
+#on property:persist.sys.cpboot=disable
+#    stop ril-daemon
+#    stop cpboot-daemon
 
 service SMD-daemon /system/bin/smdexe
     class main
@@ -553,10 +532,10 @@ service SMD-daemon /system/bin/smdexe
     group system radio inet net_raw
 
 # start multiple rilds based on multisim property
-on property:ro.multisim.simslotcount=2
-    stop ril-daemon
-    start ril-daemon
-    start ril-daemon1	
+#on property:ro.multisim.simslotcount=2
+#    stop ril-daemon
+#    start ril-daemon
+#    start ril-daemon1	
 
 on fs
 # DIAG

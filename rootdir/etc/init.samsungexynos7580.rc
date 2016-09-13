@@ -4,17 +4,13 @@ import init.wifi.rc
 import init.samsung.rc
 
 on early-init
-    mount debugfs /sys/kernel/debug /sys/kernel/debug
+    mount debugfs /sys/kernel/debug /sys/kernel/debug mode=755
 
 on init
     mkdir /preload 0771 system system
 
     # See storage config details at http://source.android.com/tech/storage/
-    mkdir /mnt/shell/emulated 0700 shell shell
     mkdir /storage/emulated 0555 root root
-
-    # Support legacy paths
-    symlink /sdcard /mnt/sdcard
 
     export EXTERNAL_STORAGE /sdcard
 
@@ -831,8 +827,9 @@ service ipsec-daemon /system/bin/IPSecService
 service gpsd /system/bin/gpsd -c /system/etc/gps.xml
     class main
     user gps
-    group system inet net_raw
+    group system inet net_raw wakelock
     ioprio be 0
+	oneshot
 
 # SENSOR FRAMEWORK : starts fingerprintService
 #service vcsFPService /system/bin/vcsFPService

@@ -44,6 +44,7 @@ on fs
 service cpboot-daemon /sbin/cbd -d -tss310 -bm -mm -P platform/13540000.dwmmc0/by-name/RADIO
     class main
     user root
-    group radio cache inet misc audio sdcard_rw log sdcard_r shell
+    group radio cache inet misc audio sdcard_rw log sdcard_r shell wakelock
+
 
 
