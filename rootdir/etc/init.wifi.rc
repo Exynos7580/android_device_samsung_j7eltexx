@@ -59,6 +59,12 @@ service wpa_supplicant /system/bin/wpa_supplicant \
     disabled
     oneshot
 
+# Run deferred initcalls of builtin kernel modules (bcmdhd)
+service wifiloader /system/bin/wifiloader
+    class main
+    oneshot
+    seclabel u:r:wifiloader:s0
+
 # tiburona
 # start for WiFi MFG (TestMode)
 service mfgloader /system/bin/mfgloader
