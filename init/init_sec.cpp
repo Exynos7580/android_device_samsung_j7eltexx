@@ -55,8 +55,8 @@ void vendor_load_properties()
     property_get("ro.bootloader", bootloader);
 
     if (strstr(bootloader, "J700F")) {
-        property_set("ro.build.fingerprint", "samsung/j7eltexx/j7elte:5.1.1/LMY48B/J700FXXU2APC4:user/release-keys");
-        property_set("ro.build.description", "j7eltexx-user 5.1.1 LMY48B J700FXXU2APC4 release-keys");
+        property_set("ro.build.fingerprint", "samsung/j7eltexx/j7elte:6.0.1/MMB29K/J700FXXU2BPH4:user/release-keys");
+        property_set("ro.build.description", "j7eltexx-user 6.0.1 MMB29K J700FXXU2BPH4 release-keys");
         property_set("ro.product.model", "SM-J700F");
         property_set("ro.product.device", "j7elte");
 	make_me_dual();
