@@ -59,7 +59,7 @@
 /dev/HPD                  0660   system     system
 
 # mfc
-/dev/video6               0660   media      media
+/dev/video6               0660   media      drmrpc
 /dev/video7               0660   media      media
 /dev/video8               0660   media      media
 /dev/video9               0660   media      media
