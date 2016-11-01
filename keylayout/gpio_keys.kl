@@ -1,0 +1,16 @@
+# You can find out the values using the 'getevent' command.
+# Press a button and you will see something like:
+#
+# /dev/input/event7: 0001 0074 00000001
+#                         ^^^^
+#
+# This is the power button. Convert 0x74 hex to decimal and
+# add it here to a file you name after the 'name' of the
+# device.
+#
+key 114   VOLUME_DOWN
+key 115   VOLUME_UP
+key 116   POWER
+key 152   POWER
+key 172   HOME
+
