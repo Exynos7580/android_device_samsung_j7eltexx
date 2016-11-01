@@ -61,7 +61,7 @@ service wpa_supplicant /system/bin/wpa_supplicant \
 
 # Run deferred initcalls of builtin kernel modules (bcmdhd)
 service wifiloader /system/bin/wifiloader
-    class main
+    class late_start
     oneshot
     seclabel u:r:wifiloader:s0
 
@@ -102,4 +102,6 @@ service hostapd /system/bin/hostapd -dddd /data/hostapd/hostapd.conf
     oneshot
     disabled
 
+on property:wlan.driver.status=ok
+    start macloader
 
