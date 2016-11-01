@@ -47,6 +47,12 @@ PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/configs/gps/gps.conf:system/etc/gps.conf \
     $(LOCAL_PATH)/configs/gps/gps.xml:system/etc/gps.xml
 
+# Key-layout
+PRODUCT_COPY_FILES += \
+	$(LOCAL_PATH)/keylayout/Button_Jack.kl:system/usr/keylayout/Button_Jack.kl \
+	$(LOCAL_PATH)/keylayout/gpio_keys.kl:system/usr/keylayout/gpio_keys.kl \
+	$(LOCAL_PATH)/keylayout/sec_touchkey.kl:system/usr/keylayout/sec_touchkey.kl
+
 # Lights
 PRODUCT_PACKAGES += \
     lights.universal7580
@@ -81,6 +87,15 @@ PRODUCT_COPY_FILES += \
 
 ADDITIONAL_DEFAULT_PROPERTIES += \
     wifi.interface=wlan0
+    
+# Samsung
+PRODUCT_PACKAGES += \
+    SamsungServiceMode
+
+# Ril
+PRODUCT_PACKAGES += \
+    libprotobuf-cpp-full \
+    modemloader
 
 # SYMBOLS FOR BLOBS
 PRODUCT_PACKAGES += \
