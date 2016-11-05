@@ -7,7 +7,7 @@ on early-init
     mount debugfs /sys/kernel/debug /sys/kernel/debug mode=755
 
 on init
-    export LD_SHIM_LIBS /system/bin/gpsd|libshim_gpsd.so
+    export LD_SHIM_LIBS "/system/bin/gpsd|libshim_gpsd.so:/system/vendor/lib/libwvm.so|libshim_wvm.so"
     mkdir /preload 0771 system system
 
     # See storage config details at http://source.android.com/tech/storage/
