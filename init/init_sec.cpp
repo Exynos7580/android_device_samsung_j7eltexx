@@ -47,20 +47,16 @@ void make_me_dual()
 
 void vendor_load_properties()
 {
-    char platform[PROP_VALUE_MAX];
-    char bootloader[PROP_VALUE_MAX];
-    char device[PROP_VALUE_MAX];
-    char devicename[PROP_VALUE_MAX];
 
-    property_get("ro.bootloader", bootloader);
+    std::string bootloader = property_get("ro.bootloader");
 
-    if (strstr(bootloader, "J700F")) {
+    if (bootloader.find("J700F") == 0) {
         property_set("ro.build.fingerprint", "samsung/j7eltexx/j7elte:6.0.1/MMB29K/J700FXXU3BPK1:user/release-keys");
         property_set("ro.build.description", "j7eltexx-user 6.0.1 MMB29K J700FXXU3BPK1 release-keys");
         property_set("ro.product.model", "SM-J700F");
         property_set("ro.product.device", "j7elte");
 	make_me_dual();
-    } else if (strstr(bootloader, "J700M")) {
+    } else if (bootloader.find("J700M") == 0) {
         property_set("ro.build.fingerprint", "samsung/j7eltexx/j7elte:5.1.1/LMY47X/J700MUBU1APA1:user/release-keys");
         property_set("ro.build.description", "j7eltexx-user 5.1.1 LMY47X J700MUBU1APA1 release-keys");
         property_set("ro.product.model", "SM-J700M");
@@ -73,7 +69,7 @@ void vendor_load_properties()
 	make_me_dual();
     }
 
-    property_get("ro.product.device", device);
-    strlcpy(devicename, device, sizeof(devicename));
-    ERROR("Found bootloader id %s setting build properties for %s device\n", bootloader, devicename);
+    std::string device = property_get("ro.product.device");
+    std::string devicename = property_get("ro.product.model");
+    ERROR("Found bootloader id %s setting build properties for %s device\n", bootloader.c_str(), devicename.c_str());
 }
