@@ -87,10 +87,6 @@ PRODUCT_COPY_FILES += \
 
 ADDITIONAL_DEFAULT_PROPERTIES += \
     wifi.interface=wlan0
-    
-# Samsung
-PRODUCT_PACKAGES += \
-    SamsungServiceMode
 
 # Ril
 PRODUCT_PACKAGES += \
