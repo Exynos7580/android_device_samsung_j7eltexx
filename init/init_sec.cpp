@@ -30,14 +30,13 @@
    Create Date : 2016.04.13
  */
 
-#include <stdio.h>
 #include <stdlib.h>
-#include <string.h>
+#include <stdio.h>
 
-#include "log.h"
-#include "property_service.h"
-#include "util.h"
 #include "vendor_init.h"
+#include "property_service.h"
+#include "log.h"
+#include "util.h"
 
 void make_me_dual()
 {
@@ -46,53 +45,35 @@ void make_me_dual()
 	property_set("ro.multisim.simslotcount", "2");
 }
 
-#include "init_sec.h"
-
-std::string bootloader;
-std::string device;
-char* devicename;
-
-device_variant check_device_and_get_variant()
-{
-    std::string platform = property_get("ro.board.platform");
-    if (platform != ANDROID_TARGET) {
-        return UNKNOWN;
-    }
-
-    bootloader = property_get("ro.bootloader");
-    return match(bootloader);
-}
-
 void vendor_load_properties()
 {
-    device_variant variant = check_device_and_get_variant();
+    char platform[PROP_VALUE_MAX];
+    char bootloader[PROP_VALUE_MAX];
+    char device[PROP_VALUE_MAX];
+    char devicename[PROP_VALUE_MAX];
 
-    switch (variant) {
-        case J700F:
-        	property_set("ro.build.fingerprint", "samsung/j7eltexx/j7elte:5.1.1/LMY48B/J700FXXU2APC4:user/release-keys");
-        	property_set("ro.build.description", "j7eltexx-user 5.1.1 LMY48B J700FXXU2APC4 release-keys");
-        	property_set("ro.product.model", "SM-J700F");
-        	property_set("ro.product.device", "j7elte");
-        	make_me_dual();
-            break;
-        case J700M:
-        	property_set("ro.build.fingerprint", "samsung/j7eltexx/j7elte:5.1.1/LMY47X/J700MUBU1APA1:user/release-keys");
-        	property_set("ro.build.description", "j7eltexx-user 5.1.1 LMY47X J700MUBU1APA1 release-keys");
-        	property_set("ro.product.model", "SM-J700M");
-        	property_set("ro.product.device", "j7elte");
-            break;
-        case J700H:
-        	property_set("ro.build.fingerprint", "samsung/j7e3gxx/j7e3g:5.1.1/LMY48B/J700HXXU2APC5:user/release-keys");
-        	property_set("ro.build.description", "j7e3gxx-user 5.1.1 LMY48B J700HXXU2APC5 release-keys");
-        	property_set("ro.product.model", "SM-J700H");
-        	property_set("ro.product.device", "j7e3g");
-        	make_me_dual();
-            break;
-        default:
-            ERROR("Unknown bootloader id %s detected. bailing...\n", bootloader.c_str());
-            return;
+    property_get("ro.bootloader", bootloader);
+
+    if (strstr(bootloader, "J700F")) {
+        property_set("ro.build.fingerprint", "samsung/j7eltexx/j7elte:5.1.1/LMY48B/J700FXXU2APC4:user/release-keys");
+        property_set("ro.build.description", "j7eltexx-user 5.1.1 LMY48B J700FXXU2APC4 release-keys");
+        property_set("ro.product.model", "SM-J700F");
+        property_set("ro.product.device", "j7elte");
+	make_me_dual();
+    } else if (strstr(bootloader, "J700M")) {
+        property_set("ro.build.fingerprint", "samsung/j7eltexx/j7elte:5.1.1/LMY47X/J700MUBU1APA1:user/release-keys");
+        property_set("ro.build.description", "j7eltexx-user 5.1.1 LMY47X J700MUBU1APA1 release-keys");
+        property_set("ro.product.model", "SM-J700M");
+        property_set("ro.product.device", "j7elte");
+    } else {
+        property_set("ro.build.fingerprint", "samsung/j7e3gxx/j7e3g:5.1.1/LMY48B/J700HXXU2APC5:user/release-keys");
+        property_set("ro.build.description", "j7e3gxx-user 5.1.1 LMY48B J700HXXU2APC5 release-keys");
+        property_set("ro.product.model", "SM-J700H");
+        property_set("ro.product.device", "j7e3g");
+	make_me_dual();
     }
-    device = property_get("ro.product.device");
-    INFO("Found bootloader id %s setting build properties for %s device\n", bootloader.c_str(), device.c_str());
-}
 
+    property_get("ro.product.device", device);
+    strlcpy(devicename, device, sizeof(devicename));
+    ERROR("Found bootloader id %s setting build properties for %s device\n", bootloader, devicename);
+}
