@@ -54,6 +54,15 @@ on post-fs-data
 #    setprop sys.blowfish.loaded true
 
 on boot
+    # Ensure all CPUs are online (big cluster)
+    write /sys/devices/system/cpu/cpu4/online 1
+
+    # Update cpusets now that processors are up
+    write /dev/cpuset/foreground/cpus 0-7
+    write /dev/cpuset/foreground/boost/cpus 4-7
+    write /dev/cpuset/background/cpus 0
+    write /dev/cpuset/system-background/cpus 0-3
+
     # override init.rc to keep plenty of large order chunks around
     # to improve allocation times
     # write /proc/sys/vm/min_free_kbytes 32768
