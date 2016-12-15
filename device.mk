@@ -102,11 +102,6 @@ PRODUCT_PACKAGES += \
 PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/ril/sbin/cbd:root/sbin/cbd
 
-# QTI extended functionality of android telephony.
-# Required for MSIM manual provisioning and other related features.
-PRODUCT_PACKAGES += telephony-ext
-PRODUCT_BOOT_JARS += telephony-ext
-
 # Inherit from Exynos7580-common
 $(call inherit-product, device/samsung/exynos7580-common/device-common.mk)
 
