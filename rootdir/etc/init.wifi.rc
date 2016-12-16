@@ -61,7 +61,7 @@ service wpa_supplicant /system/bin/wpa_supplicant \
 
 # Run deferred initcalls of builtin kernel modules (bcmdhd)
 service wifiloader /system/bin/wifiloader
-    class late_start
+    class main
     oneshot
     seclabel u:r:wifiloader:s0
 
@@ -80,7 +80,7 @@ service wlandutservice /system/bin/wlandutservice
     oneshot
 
 service macloader /system/bin/macloader
-    class main
+    class late_start
     oneshot
 
 on property:init.svc.macloader=stopped
