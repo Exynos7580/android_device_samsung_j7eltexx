@@ -898,16 +898,9 @@ on property:sys.boot_completed=1
     write /proc/sys/vm/dirty_bytes 31457280
     write /proc/sys/vm/dirty_background_bytes 15728640
 
-# DIAG
-service DIAG-daemon /system/bin/diagexe
-    class main
-    user root
-    group system radio inet net_raw
-
 # Kick watchdogd if debug_level is low
 on property:ro.debug_level=0x4f4c
     start watchdogd
-
 
 service battery_charger /sbin/healthd -c
     class charger

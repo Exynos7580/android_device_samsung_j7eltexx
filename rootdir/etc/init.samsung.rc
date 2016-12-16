@@ -443,12 +443,6 @@ service scs /system/bin/scs
     group system
     oneshot
 
-# AT Distributor for factory test
-service at_distributor /system/bin/at_distributor
-    class late_start
-    user root
-    group radio misc log
-
 # MobiCore startup
 service mobicore /system/bin/mcDriverDaemon -r /system/app/FFFFFFFF000000000000000000000001.drbin -r /system/app/mcRegistry/ffffffffd0000000000000000000000a.tlbin -r /system/app/mcRegistry/ffffffffd00000000000000000000016.tlbin
     class core
@@ -462,83 +456,36 @@ service mobicore /system/bin/mcDriverDaemon -r /system/app/FFFFFFFF0000000000000
 #    user drm
 #    group system drm inet drmrpc radio
 #
-
-# Sensorhub service
-service sensorhubservice /system/bin/sensorhubservice
-    class main
-    user system
-    group input
-
-# AT Distributor for factory test
-service at_distributor /system/bin/at_distributor
-    class late_start
-    user root
-    group radio misc log
-
-service DR-daemon /system/bin/ddexe
-    class main
-    user root
-    group system radio inet net_raw
-
-service BCS-daemon /system/bin/connfwexe
-    class main
-    user root
-    group system radio inet net_raw
-
-# for ethernet
-service dhcpcd_eth0 /system/bin/dhcpcd -ABKL
-    class main
-    disabled
-    oneshot
-
-# for SmartSwitch
-service dhcpcd_usb0 /system/bin/dhcpcd -ABKL
-    class main
-    disabled
-    oneshot
     
 # for Wi-Fi only models
-#on property:ro.radio.noril=yes
-#    stop ril-daemon
+on property:ro.radio.noril=yes
+    stop ril-daemon
 
-#service ril-daemon /system/bin/rild
-#    class main
-#    socket rild stream 660 root radio
-#    socket rild-debug stream 660 radio system
-#    socket rild-cas stream 660  casdrm mmb
-#    user root
-#    group radio cache inet misc audio sdcard_r sdcard_rw log vpn system wakelock
-#    onrestart restart cpboot-daemon
-
-#service ril-daemon1 /system/bin/rild -c 2
-#    class main
-#    socket rild2 stream 660 root radio
-#    socket rild-debug2 stream 660 radio system
-#    user root
-#    group radio cache inet misc audio sdcard_r sdcard_rw log wakelock
-#    disabled
-#    onrestart restart cpboot-daemon
-
-#on property:persist.sys.cpboot=disable
-#    stop ril-daemon
-#    stop cpboot-daemon
-
-service SMD-daemon /system/bin/smdexe
+service ril-daemon /system/bin/rild
     class main
+    socket rild stream 660 root radio
+    socket rild-debug stream 660 radio system
+    socket rild-cas stream 660  casdrm mmb
     user root
-    group system radio inet net_raw
+    group radio cache inet misc audio wakelock sdcard_r sdcard_rw log vpn system
+    onrestart restart cpboot-daemon
+
+service ril-daemon1 /system/bin/rild -c 2
+    class main
+    socket rild2 stream 660 root radio
+    socket rild-debug2 stream 660 radio system
+    user root
+    group radio cache inet misc audio wakelock sdcard_r sdcard_rw log
+    disabled
+    onrestart restart cpboot-daemon
+
+on property:persist.sys.cpboot=disable
+    stop ril-daemon
+    stop cpboot-daemon
 
 # start multiple rilds based on multisim property
-#on property:ro.multisim.simslotcount=2
-#    stop ril-daemon
-#    start ril-daemon
-#    start ril-daemon1	
-
-on fs
-# DIAG
-service DIAG-daemon /system/bin/diagexe
-    class main
-    user root
-    group system radio inet net_raw
-
+on property:ro.multisim.simslotcount=2
+    stop ril-daemon
+    start ril-daemon
+    start ril-daemon1
 
