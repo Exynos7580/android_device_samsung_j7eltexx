@@ -55,7 +55,7 @@ void vendor_load_properties()
         property_set("ro.build.description", "j7eltexx-user 5.1.1 LMY48B J700FXXU2APC4 release-keys");
         property_set("ro.product.model", "SM-J700F");
         property_set("ro.product.device", "j7elte");
-	make_me_dual();
+	//make_me_dual();
     } else if (bootloader.find("J700M") == 0) {
         property_set("ro.build.fingerprint", "samsung/j7eltexx/j7elte:5.1.1/LMY47X/J700MUBU1APA1:user/release-keys");
         property_set("ro.build.description", "j7eltexx-user 5.1.1 LMY47X J700MUBU1APA1 release-keys");
@@ -66,7 +66,7 @@ void vendor_load_properties()
         property_set("ro.build.description", "j7e3gxx-user 5.1.1 LMY48B J700HXXU2APC5 release-keys");
         property_set("ro.product.model", "SM-J700H");
         property_set("ro.product.device", "j7e3g");
-	make_me_dual();
+	//make_me_dual();
     }
 
     std::string device = property_get("ro.product.device");
