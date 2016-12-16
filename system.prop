@@ -47,3 +47,6 @@ ro.ril.gprsclass=10
 
 # I/O
 sys.io.scheduler=bfq
+
+# Debug
+ro.debug_level=0x4f4c
