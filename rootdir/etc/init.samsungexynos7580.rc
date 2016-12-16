@@ -6,6 +6,9 @@ import init.samsung.rc
 on early-init
     mount debugfs /sys/kernel/debug /sys/kernel/debug mode=755
 
+    # Fix 'add_tid_to_cgroup failed to write' errors
+    chmod 0660 /dev/cpuctl
+
 on init
     export LD_SHIM_LIBS /system/bin/gpsd|libshim_gpsd.so
     mkdir /preload 0771 system system
