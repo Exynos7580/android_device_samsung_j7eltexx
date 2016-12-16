@@ -50,3 +50,8 @@ sys.io.scheduler=bfq
 
 # Debug
 ro.debug_level=0x4f4c
+
+# Media
+media.stagefright.legacyencoder=true
+media.stagefright.less-secure=true
+
