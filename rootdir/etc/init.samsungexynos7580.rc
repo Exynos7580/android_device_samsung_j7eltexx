@@ -823,6 +823,12 @@ on fs
 # ARGOSD network_throughput
     chown system system /dev/network_throughput
 
+service bcmdhd-loader /system/bin/bcmdhd-loader
+      class main
+      user root
+      oneshot
+      seclabel u:r:bcmdhd-loader:s0
+
 # ARGOSD
 service argos-daemon /system/bin/argosd
     class main

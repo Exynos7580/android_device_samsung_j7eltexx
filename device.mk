@@ -89,6 +89,9 @@ PRODUCT_COPY_FILES += \
 ADDITIONAL_DEFAULT_PROPERTIES += \
     wifi.interface=wlan0
 
+PRODUCT_PACKAGES += \
+    bcmdhd-loader
+
 # Ril
 PRODUCT_PACKAGES += \
     libprotobuf-cpp-full \
