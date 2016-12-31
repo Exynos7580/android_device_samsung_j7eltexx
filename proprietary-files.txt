@@ -1,23 +1,21 @@
 # Audio
-#etc/firmware/dbmd2_vqe_fw_i2c.bin
+etc/firmware/dbmd2_vqe_fw_i2c.bin
 
-### Wifi
-bin/mfgloader
-bin/wlandutservice
+# Wifi
 etc/wifi/bcmdhd_apsta.bin
 etc/wifi/bcmdhd_mfg.bin
 etc/wifi/bcmdhd_sta.bin
 etc/wifi/nvram_mfg.txt
 etc/wifi/nvram_net.txt
 
-### Media
 # S5P Multi Format Codec
 vendor/firmware/mfc_fw.bin
+
 # Image subsystem
 vendor/firmware/fimc_is_fd.bin
-vendor/firmware/fimc_is_fw2_3l2.bin
+vendor/firmware/fimc_is_fw2_sr261.bin
 
-# Noise supppression
+### Noise supppression
 vendor/etc/nxp/BargeIn/Tx_ControlParams_WIDEBAND_ANALOG_DOCK.txt
 vendor/etc/nxp/BargeIn/Tx_ControlParams_WIDEBAND_BLUETOOTH_SCO_HEADSET.txt
 vendor/etc/nxp/BargeIn/Tx_ControlParams_WIDEBAND_EARPIECE.txt
@@ -100,9 +98,9 @@ vendor/lib/liblvverx_3.27.02.so
 vendor/lib/liblvvetx_3.27.02.so
 
 # Bluetooth
-vendor/firmware/bcm43438A1_V0051.0230.hcd
+vendor/firmware/bcm43430A1_V0032.0076.hcd
 
-### Camera
+# Camera
 lib/hw/camera.universal7580.so
 lib/libexynoscamera.so
 lib/libhwjpeg.so
@@ -117,13 +115,13 @@ bin/gpsd
 lib/hw/gps.default.so:lib/hw/gps.universal7580.so
 lib/libwrappergps.so
 
-# Graphics
+# Graphics (GPU)
 vendor/lib/egl/libGLES_mali.so
 
-### Sensors
+# Sensors
 lib/hw/sensors.universal7580.so
 
-### Widevine
+# Widevine DRM
 lib/liboemcrypto.so
 lib/libdrmdecrypt.so
 lib/libstagefright_hdcp.so
@@ -133,23 +131,17 @@ vendor/lib/libWVStreamControlAPI_L1.so
 vendor/lib/libwvdrm_L1.so
 vendor/lib/libwvm.so
 
-### RIL
-# opensource rild don't work well for dual sim
+# Ril
 bin/rild
 lib/libsecnativefeature.so
 lib/libsec-ril.so
 lib/libsec-ril-dsds.so
 
-### Mobicore
-app/020a0000000000000000000000000000.drbin
+# Mobicore
 app/FFFFFFFF000000000000000000000001.drbin
 app/mcRegistry/00060308060501020000000000000000.tlbin
-app/mcRegistry/02010000080300030000000000000000.tlbin
 app/mcRegistry/07010000000000000000000000000000.tlbin
 app/mcRegistry/07060000000000000000000000000000.tlbin
-app/mcRegistry/08130000000000000000000000000000.tlbin
-app/mcRegistry/FFFFFFFFD00000000000000000000016.tlbin
-app/mcRegistry/ffffffff000000000000000000000004.tlbin
 app/mcRegistry/ffffffff000000000000000000000005.tlbin
 app/mcRegistry/ffffffff00000000000000000000000a.tlbin
 app/mcRegistry/ffffffff00000000000000000000000c.tlbin
@@ -158,20 +150,8 @@ app/mcRegistry/ffffffff00000000000000000000000f.tlbin
 app/mcRegistry/ffffffff000000000000000000000012.tlbin
 app/mcRegistry/ffffffff000000000000000000000013.tlbin
 app/mcRegistry/ffffffff000000000000000000000016.tlbin
-app/mcRegistry/ffffffff000000000000000000000017.tlbin
 app/mcRegistry/ffffffff000000000000000000000019.tlbin
-app/mcRegistry/ffffffff000000000000000000000021.tlbin
-app/mcRegistry/ffffffff000000000000000000000041.tlbin
-app/mcRegistry/ffffffffd00000000000000000000004.tlbin
 app/mcRegistry/ffffffffd0000000000000000000000a.tlbin
 app/mcRegistry/ffffffffd00000000000000000000016.tlbin
 app/mcRegistry/fffffffff0000000000000000000001e.tlbin
-
 bin/cs
-bin/mcDriverDaemon
-lib/libMcClient.so
-lib/libMcRegistry.so
-
-#misc
-bin/exyrngd
-
