@@ -41,9 +41,6 @@ PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/bluetooth/bt_vendor.conf:system/etc/bluetooth/bt_vendor.conf
 
 # GPS
-PRODUCT_PACKAGES += \
-    libdmitry
-
 PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/configs/gps/gps.conf:system/etc/gps.conf \
     $(LOCAL_PATH)/configs/gps/gps.xml:system/etc/gps.xml
@@ -67,6 +64,7 @@ PRODUCT_PACKAGES += \
     init.samsung.rc \
     init.samsungexynos7580.rc \
     init.samsungexynos7580.usb.rc \
+    init.sec.boot.sh \
     init.wifi.rc \
     ueventd.samsungexynos7580.rc
 
@@ -78,10 +76,6 @@ PRODUCT_COPY_FILES += \
 
 ADDITIONAL_DEFAULT_PROPERTIES += \
     wifi.interface=wlan0
-
-# SYMBOLS FOR BLOBS
-PRODUCT_PACKAGES += \
-    libsamsung_symbols
 
 # cpboot-daemon for modem
 PRODUCT_COPY_FILES += \

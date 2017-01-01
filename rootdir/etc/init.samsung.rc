@@ -7,6 +7,9 @@ on init
     # To sync between sdcard & installd
     setprop installd.sdcard_manipulate_done 0
 
+on post-fs
+    start sec-sh
+
 on post-fs-data
 
     # Latin SSMS feature
@@ -460,6 +463,11 @@ on boot
 
     copy /system/etc/battery_charging_temp.data /sys/class/power_supply/battery/batt_temp_table
 
+# deferred initcall
+service sec-sh /system/etc/init.sec.boot.sh
+    class core
+    user root
+    oneshot
 
 service scs /system/bin/scs
     class main
