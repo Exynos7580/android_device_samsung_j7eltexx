@@ -5,6 +5,7 @@ vendor/firmware/bcm43438A1_V0051.0230.hcd
 cameradata/datapattern_420sp.yuv
 cameradata/datapattern_front_420sp.yuv
 lib/hw/camera.universal7580.so
+lib/libexynosv4l2.so
 lib/libexynoscamera.so
 lib/libhwjpeg.so
 lib/libuniplugin.so
@@ -13,8 +14,6 @@ vendor/firmware/setfile_3l2.bin
 vendor/firmware/setfile_5e3.bin
 
 ### GateKeeper
-bin/gatekeeperd
-lib/libgatekeeper.so
 lib/hw/gatekeeper.exynos7580.so
 
 ### GPS
@@ -149,9 +148,19 @@ vendor/etc/nxp/mVoIPSec/Tx_ControlParams_WIDEBAND_WIRED_HEADSET.txt
 vendor/lib/liblvverx_3.27.02.so
 vendor/lib/liblvvetx_3.27.02.so
 
+### OMX
+lib/omx/libOMX.Exynos.AVC.Decoder.so
+lib/omx/libOMX.Exynos.AVC.Encoder.so
+lib/omx/libOMX.Exynos.MPEG4.Decoder.so
+lib/omx/libOMX.Exynos.MPEG4.Encoder.so
+lib/omx/libOMX.Exynos.VP8.Decoder.so
+lib/omx/libOMX.Exynos.VP8.Encoder.so
+lib/omx/libOMX.Exynos.WMV.Decoder.so
+
 ### RIL
 # opensource rild don't work well for dual sim
 bin/rild
+bin/IPSecService
 lib/libsecnativefeature.so
 lib/libsec-ril.so
 lib/libsec-ril-dsds.so
@@ -170,8 +179,6 @@ vendor/lib/libwvdrm_L1.so
 vendor/lib/libwvm.so
 
 ### Wifi
-bin/mfgloader
-bin/wlandutservice
 etc/wifi/bcmdhd_apsta.bin
 etc/wifi/bcmdhd_mfg.bin
 etc/wifi/bcmdhd_sta.bin
