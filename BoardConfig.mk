@@ -21,9 +21,6 @@ TARGET_OTA_ASSERT_DEVICE := j7e3g,j7e3gxx,j7elte,j7eltexx
 
 DEVICE_PATH := device/samsung/j7eltexx
 
-# CPU
-ENABLE_CPUSETS := true
-
 # Init
 TARGET_INIT_VENDOR_LIB := libinit_sec
 TARGET_UNIFIED_DEVICE := true
