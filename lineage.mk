@@ -1,5 +1,6 @@
 #
 # Copyright (C) 2016 The CyanogenMod Project
+#           (C) 2017 The LineageOS Project
 #
 # Licensed under the Apache License, Version 2.0 (the "License");
 # you may not use this file except in compliance with the License.
@@ -21,7 +22,7 @@ $(call inherit-product, device/samsung/j7eltexx/full_j7eltexx.mk)
 $(call inherit-product, vendor/cm/config/common_full_phone.mk)
 
 # Set those variables here to overwrite the inherited values.
-PRODUCT_NAME := cm_j7eltexx
+PRODUCT_NAME := lineage_j7eltexx
 PRODUCT_DEVICE := j7eltexx
 PRODUCT_BRAND := samsung
 PRODUCT_MANUFACTURER := samsung

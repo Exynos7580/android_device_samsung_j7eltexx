@@ -18,7 +18,7 @@ Rear Camera  | 13 MP,  4128 x 3096 pixels, autofocus, LED flash
 
 ![Galaxy J7 LTE](http://cdn2.gsmarena.com/vv/pics/samsung/samsung-galaxy-j7-j700f-1.jpg "Galaxy J7 LTE")
 
-This branch is for building CyanogenMod 13.0 Firmware.
+This branch is for building Lineage 14.1 Firmware.
 
 
 Model Supported : SM-J700F SM-J700M SM-J700H
@@ -27,7 +27,6 @@ Model Supported : SM-J700F SM-J700M SM-J700H
 TODO:
 -----
  - HWC VSync
- - Camera (co-related with HWC)
- - Figure Out Incoming Calls
+ - Figure Out Incoming Calls audio
  - random reboot (Need to Verify fixed or not)
- - Sepolicy needs to be fixed
+ - Sepolicy needs to be fixed (disabled)

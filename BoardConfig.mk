@@ -27,7 +27,7 @@ TARGET_UNIFIED_DEVICE := true
 
 # Kernel
 BOARD_MKBOOTIMG_ARGS := --kernel_offset 0x00008000 --ramdisk_offset 0x01000000 --tags_offset 0x00000100 --dt $(DEVICE_PATH)/dt.img
-TARGET_KERNEL_CONFIG := cyanogenmod_j7elte_defconfig
+TARGET_KERNEL_CONFIG := lineageos_j7elte_defconfig
 TARGET_KERNEL_SOURCE := kernel/samsung/j7elte
 
 # Partitions
@@ -45,10 +45,7 @@ TARGET_SYSTEM_PROP += $(DEVICE_PATH)/system.prop
 TARGET_RECOVERY_FSTAB := $(DEVICE_PATH)/rootdir/etc/fstab.samsungexynos7580
 
 # Radio
-SIM_COUNT := 2
 BOARD_MODEM_TYPE := tss310
-TARGET_GLOBAL_CFLAGS += -DANDROID_MULTI_SIM
-TARGET_GLOBAL_CPPFLAGS += -DANDROID_MULTI_SIM
 
 # inherit from the proprietary version
 -include vendor/samsung/j7eltexx/BoardConfigVendor.mk
