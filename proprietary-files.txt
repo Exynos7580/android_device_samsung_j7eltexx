@@ -164,6 +164,12 @@ bin/IPSecService
 lib/libsecnativefeature.so
 lib/libsec-ril.so
 lib/libsec-ril-dsds.so
+# IMS
+app/imsservice/imsservice.apk
+app/ImsSettings/ImsSettings.apk
+lib/libims_engine.so
+lib/libcpve-client.so
+lib/libapve-client.so
 
 ### Sensors
 lib/hw/sensors.universal7580.so
