@@ -1,5 +1,5 @@
 #
-# Copyright (C) 2016 The CyanogenMod Project
+# Copyright (C) 2017 The LineageOS Project
 #
 # Licensed under the Apache License, Version 2.0 (the "License");
 # you may not use this file except in compliance with the License.
@@ -51,4 +51,4 @@ TARGET_GLOBAL_CFLAGS += -DANDROID_MULTI_SIM
 TARGET_GLOBAL_CPPFLAGS += -DANDROID_MULTI_SIM
 
 # inherit from the proprietary version
--include vendor/samsung/j7e3gxx/BoardConfigVendor.mk
+-include vendor/samsung/j7eltexx/BoardConfigVendor.mk
