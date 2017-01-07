@@ -20,8 +20,8 @@
 
 #define DTBH_MAGIC         "DTBH"
 #define DTBH_VERSION       2
-#define DTBH_PLATFORM      "j7elte"
-#define DTBH_SUBTYPE       "j7elte"
+#define DTBH_PLATFORM      "android"
+#define DTBH_SUBTYPE       "samsung"
  /* Hardcoded entry */
 #define DTBH_PLATFORM_CODE 0x347e
 #define DTBH_SUBTYPE_CODE  0x88668650
