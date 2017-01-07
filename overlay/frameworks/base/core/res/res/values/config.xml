@@ -36,10 +36,6 @@
     <!-- Flag specifying whether VoLTE TTY is supported -->
     <bool name="config_carrier_volte_tty_supported">true</bool>
 
-    <!-- IMS -->
-    <bool name="useImsAlwaysForEmergencyCall">true</bool>
-    <bool name="imsServiceAllowTurnOff">true</bool>
-
     <!-- TCP Buffers -->
     <string-array name="config_mobile_tcp_buffers">
         <item>lte:1048576,3145728,4194304,524288,1572864,2097152</item>
