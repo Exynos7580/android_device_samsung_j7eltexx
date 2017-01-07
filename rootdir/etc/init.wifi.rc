@@ -43,8 +43,8 @@ on boot
 
 service p2p_supplicant /system/bin/wpa_supplicant \
     -iwlan0 -Dnl80211 -c/data/misc/wifi/wpa_supplicant.conf \
-    -I/system/etc/wifi/p2p_supplicant_overlay.conf \
-    -puse_p2p_group_interface=1 \
+    -I/system/etc/wifi/p2p_supplicant_overlay.conf -O/data/misc/wifi/sockets \
+    -puse_p2p_group_interface=1 -puse_multi_chan_concurrent=1 \
     -m/data/misc/wifi/p2p_supplicant.conf \
     -e/data/misc/wifi/entropy.bin -g@android:wpa_wlan0
     class main
