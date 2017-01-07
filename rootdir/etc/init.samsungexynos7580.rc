@@ -843,7 +843,7 @@ service ipsec-daemon /system/bin/IPSecService
 service gpsd /system/bin/gpsd -c /system/etc/gps.xml
     class main
     user gps
-    group system inet net_raw
+    group system wakelock inet net_raw
     ioprio be 0
 
 # SENSOR FRAMEWORK : starts fingerprintService

@@ -48,6 +48,7 @@ service p2p_supplicant /system/bin/wpa_supplicant \
     class main
     socket wpa_wlan0 dgram 660 wifi wifi
     disabled
+    group system wakelock
     oneshot
 
 service wpa_supplicant /system/bin/wpa_supplicant \
@@ -57,6 +58,7 @@ service wpa_supplicant /system/bin/wpa_supplicant \
     class main
     socket wpa_wlan0 dgram 660 wifi wifi
     disabled
+    group system wakelock
     oneshot
 
 # tiburona
