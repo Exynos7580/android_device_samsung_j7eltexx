@@ -97,14 +97,6 @@ on post-fs-data
     chown root root /system/etc/security/.drm
     chmod 0775 /system/etc/security/.drm
 
-    # Added for Playready DRM Support
-    mkdir /data/data/.drm 0775
-    chown drm system /data/data/.drm
-    chmod 0775 /data/data/.drm
-    mkdir /data/data/.drm/.playready 0775
-    chown drm system /data/data/.drm/.playready
-    chmod 0775 /data/data/.drm/.playready
-
     # Added for Playready DCM DRM Support
     mkdir /data/.dcmdrm 0775
     chown drm system /data/.dcmdrm
