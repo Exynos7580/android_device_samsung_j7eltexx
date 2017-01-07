@@ -36,9 +36,9 @@ TARGET_KERNEL_CONFIG := lineageos_j7elte_defconfig
 TARGET_KERNEL_SOURCE := kernel/samsung/j7elte
 
 # Extracted with libbootimg
-BOARD_KERNEL_SEPARATED_DT := true
-BOARD_MKBOOTIMG_ARGS := --kernel_offset 0x00008000 --ramdisk_offset 0x01000000 --tags_offset 0x00000100
-TARGET_CUSTOM_DTBTOOL := dtbhtoolExynos
+#BOARD_KERNEL_SEPARATED_DT := true
+BOARD_MKBOOTIMG_ARGS := --kernel_offset 0x00008000 --ramdisk_offset 0x01000000 --tags_offset 0x00000100 --dt $(DEVICE_PATH)/dt.img
+#TARGET_CUSTOM_DTBTOOL := dtbhtoolExynos
 
 # Partitions
 BOARD_BOOTIMAGE_PARTITION_SIZE := 29360128

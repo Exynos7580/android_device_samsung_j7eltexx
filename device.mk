@@ -29,9 +29,8 @@ PRODUCT_AAPT_PREF_CONFIG := xhdpi
 PRODUCT_AAPT_PREBUILT_DPI := hdpi mdpi
 
 # Flat device tree for boot image
-PRODUCT_PACKAGES += \
-    dtbhtoolExynos
-  
+#PRODUCT_PACKAGES += \
+#    dtbhtoolExynos
 
 # Boot animation
 TARGET_SCREEN_HEIGHT := 1280
