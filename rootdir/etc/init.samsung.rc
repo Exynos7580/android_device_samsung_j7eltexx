@@ -7,9 +7,6 @@ on init
     # To sync between sdcard & installd
     setprop installd.sdcard_manipulate_done 0
 
-on post-fs
-    start sec-sh
-
 on post-fs-data
 
     # Latin SSMS feature
@@ -467,12 +464,6 @@ service scs /system/bin/scs
     group system
     oneshot
 
-# AT Distributor for factory test
-service at_distributor /system/bin/at_distributor
-    class late_start
-    user root
-    group radio misc log
-
 # MobiCore startup
 service mobicore /system/bin/mcDriverDaemon -r /system/app/FFFFFFFF000000000000000000000001.drbin -r /system/app/mcRegistry/ffffffffd0000000000000000000000a.tlbin -r /system/app/mcRegistry/ffffffffd00000000000000000000016.tlbin
     class core
@@ -492,22 +483,6 @@ service sensorhubservice /system/bin/sensorhubservice
     class main
     user system
     group input
-
-# AT Distributor for factory test
-service at_distributor /system/bin/at_distributor
-    class late_start
-    user root
-    group radio misc log
-
-service DR-daemon /system/bin/ddexe
-    class main
-    user root
-    group system radio inet net_raw
-
-service BCS-daemon /system/bin/connfwexe
-    class main
-    user root
-    group system radio inet net_raw
 
 # for Wi-Fi only models
 on property:ro.radio.noril=yes
@@ -535,22 +510,9 @@ on property:persist.sys.cpboot=disable
     stop ril-daemon
     stop cpboot-daemon
 
-service SMD-daemon /system/bin/smdexe
-    class main
-    user root
-    group system radio inet net_raw
-
 # start multiple rilds based on multisim property
 on property:ro.multisim.simslotcount=2
     stop ril-daemon
     start ril-daemon
     start ril-daemon1	
-
-on fs
-# DIAG
-service DIAG-daemon /system/bin/diagexe
-    class main
-    user root
-    group system radio inet net_raw
-
 

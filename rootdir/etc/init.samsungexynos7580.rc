@@ -51,28 +51,13 @@ on post-fs-data
     mkdir /data/firmware 0770 media system
     chown media system /data/firmware
 
-# BlowFish service
-#    mkdir /data/tee 0700 system system
-#    start tz_service
-#    setprop sys.blowfish.loaded true
-
 on boot
-    # Ensure all CPUs are online (big cluster)
-    write /sys/devices/system/cpu/cpu4/online 1
-
-    # Update cpusets now that processors are up
-    write /dev/cpuset/foreground/cpus 0-7
-    write /dev/cpuset/foreground/boost/cpus 4-7
-    write /dev/cpuset/background/cpus 0
-    write /dev/cpuset/system-background/cpus 0-3
-
     # override init.rc to keep plenty of large order chunks around
     # to improve allocation times
     # write /proc/sys/vm/min_free_kbytes 32768
     # write /proc/sys/vm/min_free_order_shift 1
 
     #mount debugfs /sys/kernel/debug /sys/kernel/debug
-#    setprop ro.radio.noril yes
 
     # Allow to access debugfs
     chmod 755 /sys/kernel/debug
@@ -846,12 +831,6 @@ service gpsd /system/bin/gpsd -c /system/etc/gps.xml
     group system wakelock inet net_raw
     ioprio be 0
 
-# SENSOR FRAMEWORK : starts fingerprintService
-#service vcsFPService /system/bin/vcsFPService
-#    class late_start
-#    user system
-#    group system
-
 #service prepare_param /system/bin/prepare_param.sh /dev/block/platform/13540000.dwmmc0/by-name/PARAM
 #    class core
 #    user root
@@ -899,12 +878,6 @@ on property:sys.boot_completed=1
 on property:sys.boot_completed=1
     write /proc/sys/vm/dirty_bytes 31457280
     write /proc/sys/vm/dirty_background_bytes 15728640
-
-# DIAG
-service DIAG-daemon /system/bin/diagexe
-    class main
-    user root
-    group system radio inet net_raw
 
 # Kick watchdogd if debug_level is low
 on property:ro.debug_level=0x4f4c
