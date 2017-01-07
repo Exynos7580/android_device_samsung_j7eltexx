@@ -21,6 +21,9 @@ TARGET_OTA_ASSERT_DEVICE := j7e3g,j7e3gxx,j7elte,j7eltexx
 
 DEVICE_PATH := device/samsung/j7eltexx
 
+# Include path
+TARGET_SPECIFIC_HEADER_PATH += $(DEVICE_PATH)/include
+
 # Bluetooth
 BOARD_BLUETOOTH_BDROID_BUILDCFG_INCLUDE_DIR := $(DEVICE_PATH)/bluetooth
 
@@ -29,9 +32,13 @@ TARGET_INIT_VENDOR_LIB := libinit_sec
 TARGET_UNIFIED_DEVICE := true
 
 # Kernel
-BOARD_MKBOOTIMG_ARGS := --kernel_offset 0x00008000 --ramdisk_offset 0x01000000 --tags_offset 0x00000100 --dt $(DEVICE_PATH)/dt.img
 TARGET_KERNEL_CONFIG := lineageos_j7elte_defconfig
 TARGET_KERNEL_SOURCE := kernel/samsung/j7elte
+
+# Extracted with libbootimg
+BOARD_KERNEL_SEPARATED_DT := true
+BOARD_MKBOOTIMG_ARGS := --kernel_offset 0x00008000 --ramdisk_offset 0x01000000 --tags_offset 0x00000100
+TARGET_CUSTOM_DTBTOOL := dtbhtoolExynos
 
 # Partitions
 BOARD_BOOTIMAGE_PARTITION_SIZE := 29360128
