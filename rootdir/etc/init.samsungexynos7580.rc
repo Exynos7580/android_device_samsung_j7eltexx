@@ -4,7 +4,7 @@ import init.wifi.rc
 import init.samsung.rc
 
 on early-init
-    mount debugfs /sys/kernel/debug /sys/kernel/debug
+    mount debugfs /sys/kernel/debug /sys/kernel/debug mode=755
 
 on init
     mkdir /preload 0771 system system
