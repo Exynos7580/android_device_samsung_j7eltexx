@@ -811,6 +811,12 @@ on fs
 # ARGOSD network_throughput
     chown system system /dev/network_throughput
 
+    # Remove symlinks to avoid issues with migrate after nandroid restores
+    # Will be recreated at end of boot
+    rm /data/data/com.android.providers.telephony/databases/telephony.db
+    rm /data/data/com.android.providers.telephony/shared_prefs/preferred-apn.xml
+
+
 # ARGOSD
 service argos-daemon /system/bin/argosd
     class main
@@ -899,6 +905,12 @@ on property:ro.bootmode=charger
 
 on property:sys.tzdaemon=Ready
     start taa_service
+
+    # Symlink telephony.db and preferred-apn.xml
+    mkdir /data/data/com.android.providers.telephony/databases 0700 radio radio
+    mkdir /data/data/com.android.providers.telephony/shared_prefs 0700 radio radio
+    symlink /data/user_de/0/com.android.providers.telephony/databases/telephony.db /data/data/com.android.providers.telephony/databases/telephony.db
+    symlink /data/user_de/0/com.android.providers.telephony/shared_prefs/preferred-apn.xml /data/data/com.android.providers.telephony/shared_prefs/preferred-apn.xml
 
 on charger
     # Set cpu governor to powersave while in charging mode
