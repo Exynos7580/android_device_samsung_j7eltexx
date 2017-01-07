@@ -517,18 +517,6 @@ service BCS-daemon /system/bin/connfwexe
     user root
     group system radio inet net_raw
 
-# for ethernet
-service dhcpcd_eth0 /system/bin/dhcpcd -ABKL
-    class main
-    disabled
-    oneshot
-
-# for SmartSwitch
-service dhcpcd_usb0 /system/bin/dhcpcd -ABKL
-    class main
-    disabled
-    oneshot
-    
 # for Wi-Fi only models
 on property:ro.radio.noril=yes
     stop ril-daemon
