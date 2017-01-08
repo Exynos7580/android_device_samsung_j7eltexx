@@ -45,5 +45,6 @@ service cpboot-daemon /sbin/cbd -d -tss310 -bm -mm -P platform/13540000.dwmmc0/b
     class main
     user root
     group radio cache inet misc audio sdcard_rw log sdcard_r shell
+    seclabel u:r:cpboot-daemon:s0
 
 
