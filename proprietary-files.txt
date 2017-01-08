@@ -159,7 +159,7 @@ lib/omx/libOMX.Exynos.WMV.Decoder.so
 
 ### RIL
 # opensource rild don't work well for dual sim
--bin/rild
+bin/rild
 bin/IPSecService
 lib/libsecnativefeature.so
 lib/libsec-ril.so
