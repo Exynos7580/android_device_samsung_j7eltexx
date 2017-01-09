@@ -27,7 +27,5 @@ Model Supported : SM-J700F SM-J700M SM-J700H
 TODO:
 -----
  - HWC VSync
- - Camera (co-related with HWC)
  - Figure Out Incoming Calls
- - random reboot (Need to Verify fixed or not)
  - Sepolicy needs to be fixed
