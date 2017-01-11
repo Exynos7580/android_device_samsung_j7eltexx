@@ -20,6 +20,8 @@
 <!-- These resources are around just to allow their values to be customized
      for different hardware and product builds. -->
 <resources>
+    <!-- Wifi -->
+    <bool name="config_wifi_hotspot2_enabled">true</bool>
     <!-- Boolean indicddating if restoring network selection should be skipped -->
     <!-- The restoring is handled by modem if it is true -->
     <bool name="skip_restoring_network_selection">true</bool>
