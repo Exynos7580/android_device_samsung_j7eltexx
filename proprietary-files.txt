@@ -49,9 +49,6 @@ lib/libsensorlistener.so
 vendor/firmware/setfile_3l2.bin
 vendor/firmware/setfile_5e3.bin
 
-### GateKeeper
-lib/hw/gatekeeper.exynos7580.so
-
 ### GPS
 bin/gps.cer
 bin/gpsd
