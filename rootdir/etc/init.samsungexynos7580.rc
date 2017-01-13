@@ -7,6 +7,7 @@ on early-init
     mount debugfs /sys/kernel/debug /sys/kernel/debug
 
 on init
+    start watchdogd
     mkdir /preload 0771 system system
 
     # See storage config details at http://source.android.com/tech/storage/
@@ -875,11 +876,6 @@ on property:sys.boot_completed=1
 on property:sys.boot_completed=1
     write /proc/sys/vm/dirty_bytes 31457280
     write /proc/sys/vm/dirty_background_bytes 15728640
-
-# Kick watchdogd if debug_level is low
-on property:ro.debug_level=0x4f4c
-    start watchdogd
-
 
 service battery_charger /sbin/healthd -c
     class charger
