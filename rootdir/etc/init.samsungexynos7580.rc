@@ -76,8 +76,8 @@ on boot
     chmod 0660 /sys/devices/system/cpu/clusterhotplug/max_lock
 
     # C-STATE
-    chown system system /sys/module/cpuidle/parameters/off
-    chmod 0660 /sys/module/cpuidle/parameters/off
+    chown radio system /sys/module/cpuidle/parameters/off
+    chmod 0664 /sys/module/cpuidle/parameters/off
 
     # Change permission for dvfshelper
     chown radio system /sys/class/devfreq/17000020.bus_mif/available_frequencies
