@@ -41,6 +41,21 @@ BOARD_FLASH_BLOCK_SIZE := 131072
 # Properties
 TARGET_SYSTEM_PROP += $(DEVICE_PATH)/system.prop
 
+# Bluetooth
+BOARD_BLUETOOTH_BDROID_BUILDCFG_INCLUDE_DIR := $(DEVICE_PATH)/bluetooth
+
+# Hardware
+BOARD_HARDWARE_CLASS += $(DEVICE_PATH)/cmhw
+
+# HDMI
+BOARD_HDMI_INCAPABLE := true
+
+# Sensors
+TARGET_NO_SENSOR_PERMISSION_CHECK := true
+
+# Radio
+BOARD_RIL_CLASS := ../../../$(DEVICE_PATH)/ril
+
 # Recovery
 TARGET_RECOVERY_FSTAB := $(DEVICE_PATH)/rootdir/etc/fstab.samsungexynos7580
 
