@@ -50,13 +50,6 @@ on post-fs-data
     chown media system /data/firmware
 
 on boot
-    # override init.rc to keep plenty of large order chunks around
-    # to improve allocation times
-    # write /proc/sys/vm/min_free_kbytes 32768
-    # write /proc/sys/vm/min_free_order_shift 1
-
-    #mount debugfs /sys/kernel/debug /sys/kernel/debug
-
     # Allow to access debugfs
     chmod 755 /sys/kernel/debug
 
@@ -268,7 +261,6 @@ on fs
     mkdir /persdata/absolute 0750 system system
 
     wait /dev/block/platform/13540000.dwmmc0/by-name/PERSDATA
-    #check_fs /dev/block/platform/13540000.dwmmc0/by-name/PERSDATA ext4
     mount ext4 /dev/block/platform/13540000.dwmmc0/by-name/PERSDATA /persdata/absolute nosuid nodev barrier=1
 
     chown system system /persdata
@@ -829,21 +821,6 @@ service gpsd /system/bin/gpsd -c /system/etc/gps.xml
     group system inet net_raw
     ioprio be 0
 
-#service prepare_param /system/bin/prepare_param.sh /dev/block/platform/13540000.dwmmc0/by-name/PARAM
-#    class core
-#    user root
-#    group root
-#    seclabel u:r:prepare_param:s0
-#    oneshot
-
-# Blowfish tzdaemon
-service tz_service /system/bin/tzdaemon
-    class core
-    socket tz stream 0666 system system
-    user system
-    group system
-    disabled
-
 service taa_service /system/bin/taadaemon
     class core
     socket taa stream 0666 system system
@@ -886,8 +863,6 @@ service battery_charger /sbin/healthd -c
 on property:ro.bootmode=charger
     mount ext4 /dev/block/platform/13540000.dwmmc0/by-name/SYSTEM /system wait ro
     wait /dev/block/platform/13540000.dwmmc0/by-name/EFS
-    # check_fs is not support on cm
-    #check_fs /dev/block/platform/13540000.dwmmc0/by-name/EFS ext4
     mount ext4 /dev/block/platform/13540000.dwmmc0/by-name/EFS /efs nosuid nodev noatime noauto_da_alloc,discard,journal_async_commit
 
 on property:sys.tzdaemon=Ready
@@ -916,5 +891,5 @@ service cs_service /system/bin/cs
 
 on property:sys.mobicoredaemon.enable=true
     start cs_service
-	write /proc/iccc_ready 1
+    write /proc/iccc_ready 1
 
