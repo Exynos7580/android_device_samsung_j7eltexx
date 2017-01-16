@@ -2,6 +2,7 @@ import init.samsungexynos7580.usb.rc
 import init.baseband.rc
 import init.wifi.rc
 import init.samsung.rc
+import init.power.rc
 
 on early-init
     mount debugfs /sys/kernel/debug /sys/kernel/debug mode=755
