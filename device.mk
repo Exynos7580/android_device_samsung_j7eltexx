@@ -80,7 +80,6 @@ PRODUCT_PACKAGES += \
     init.samsung.rc \
     init.samsungexynos7580.rc \
     init.samsungexynos7580.usb.rc \
-    init.sec.boot.sh \
     init.wifi.rc \
     ueventd.samsungexynos7580.rc
 

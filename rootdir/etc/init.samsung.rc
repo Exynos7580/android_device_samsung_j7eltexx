@@ -452,12 +452,6 @@ on boot
 
     copy /system/etc/battery_charging_temp.data /sys/class/power_supply/battery/batt_temp_table
 
-# deferred initcall
-service sec-sh /system/etc/init.sec.boot.sh
-    class core
-    user root
-    oneshot
-
 service scs /system/bin/scs
     class main
     user system
@@ -470,13 +464,6 @@ service mobicore /system/bin/mcDriverDaemon -r /system/app/FFFFFFFF0000000000000
     user system
     group system
     oneshot
-
-#
-#service drm /system/bin/drmserver
-#    class main
-#    user drm
-#    group system drm inet drmrpc radio
-#
 
 # Sensorhub service
 service sensorhubservice /system/bin/sensorhubservice
