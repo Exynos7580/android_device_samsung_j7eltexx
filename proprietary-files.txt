@@ -49,6 +49,9 @@ lib/libsensorlistener.so
 vendor/firmware/setfile_3l2.bin
 vendor/firmware/setfile_5e3.bin
 
+### Debugger
+bin/bootchecker
+
 ### GPS
 bin/gps.cer
 bin/gpsd

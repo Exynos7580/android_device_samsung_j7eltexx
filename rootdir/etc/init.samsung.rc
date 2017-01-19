@@ -511,3 +511,13 @@ on property:ro.multisim.simslotcount=2
     start ril-daemon
     start ril-daemon1	
 
+# bootchecker
+service bootchecker /system/bin/bootchecker
+    class late_start
+    user system
+    group system log
+    oneshot
+
+on property:init.svc.zygote=restarting
+    restart bootchecker
+
