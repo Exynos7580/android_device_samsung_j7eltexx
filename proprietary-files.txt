@@ -59,12 +59,6 @@ app/mcRegistry/ffffffffd00000000000000000000016.tlbin
 app/mcRegistry/FFFFFFFFD00000000000000000000016.tlbin
 app/mcRegistry/fffffffff0000000000000000000001e.tlbin
 bin/cs
-bin/mcDriverDaemon
-lib/libMcClient.so
-lib/libMcRegistry.so
-
-### Misc
-bin/exyrngd
 
 ### Noise supppression
 vendor/etc/nxp/BargeIn/Tx_ControlParams_WIDEBAND_ANALOG_DOCK.txt
@@ -165,11 +159,11 @@ lib/libsecnativefeature.so
 lib/libsec-ril.so
 lib/libsec-ril-dsds.so
 # IMS
-app/imsservice/imsservice.apk
-app/ImsSettings/ImsSettings.apk
-lib/libims_engine.so
-lib/libcpve-client.so
-lib/libapve-client.so
+#app/imsservice/imsservice.apk
+#app/ImsSettings/ImsSettings.apk
+#lib/libims_engine.so
+#lib/libcpve-client.so
+#lib/libapve-client.so
 
 ### Sensors
 lib/hw/sensors.universal7580.so
