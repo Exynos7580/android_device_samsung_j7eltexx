@@ -27,13 +27,16 @@ TARGET_SPECIFIC_HEADER_PATH += $(DEVICE_PATH)/include
 # Bluetooth
 BOARD_BLUETOOTH_BDROID_BUILDCFG_INCLUDE_DIR := $(DEVICE_PATH)/bluetooth
 
+# Hardware
+BOARD_HARDWARE_CLASS += $(DEVICE_PATH)/cmhw
+
 # Init
 TARGET_INIT_VENDOR_LIB := libinit_sec
 TARGET_UNIFIED_DEVICE := true
 
 # Kernel
 TARGET_KERNEL_CONFIG := lineageos_j7elte_defconfig
-TARGET_KERNEL_SOURCE := kernel/samsung/j7elte
+TARGET_KERNEL_SOURCE := kernel/samsung/a3xelte
 
 # Extracted with libbootimg
 #BOARD_KERNEL_SEPARATED_DT := true
@@ -55,6 +58,7 @@ TARGET_SYSTEM_PROP += $(DEVICE_PATH)/system.prop
 TARGET_RECOVERY_FSTAB := $(DEVICE_PATH)/rootdir/etc/fstab.samsungexynos7580
 
 # Radio
+BOARD_RIL_CLASS := ../../../$(DEVICE_PATH)/ril
 BOARD_MODEM_TYPE := tss310
 
 # inherit from the proprietary version
