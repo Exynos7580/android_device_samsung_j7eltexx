@@ -70,6 +70,7 @@ done
 DEVICE_PACKAGE_OVERLAYS := vendor/$VENDOR/$DEVICE/overlay
 
 \$(call inherit-product, vendor/$VENDOR/$DEVICE/$DEVICE-vendor-blobs.mk)
+\$(call inherit-product, vendor/$VENDOR/exynos7580-common/exynos7580-common-vendor-blobs.mk)
 EOF
 
 (cat << EOF) > ../../../$OUTDIR/BoardConfigVendor.mk
