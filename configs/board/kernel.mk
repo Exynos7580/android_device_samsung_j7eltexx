@@ -15,15 +15,18 @@
 # limitations under the License.
 #
 
-# Inherit from Exynos7580-common
-include device/samsung/exynos7580-common/BoardConfigCommon.mk
+#####################
+# Boot & Kernel
+#####################
 
-TARGET_OTA_ASSERT_DEVICE := j7e3g,j7e3gxx,j7elte,j7eltexx
+# Boot
+BOARD_KERNEL_SEPARATED_DT := true
+BOARD_MKBOOTIMG_ARGS := --kernel_offset 0x00008000 --ramdisk_offset 0x01000000 --tags_offset 0x00000100 --board SRPOJ08A000KU
+BOARD_CUSTOM_BOOTIMG := true
+BOARD_CUSTOM_BOOTIMG_MK := hardware/samsung/mkbootimg.mk
+TARGET_CUSTOM_DTBTOOL := dtbhtoolExynos
 
-DEVICE_PATH := device/samsung/j7eltexx
-
-# Include makefiles from board folder
--include $(DEVICE_PATH)/configs/board/*.mk
-
-# inherit from the proprietary version
--include vendor/samsung/j7eltexx/BoardConfigVendor.mk
+# Kernel
+TARGET_KERNEL_CONFIG := lineageos_j7elte_defconfig
+TARGET_KERNEL_SOURCE := kernel/samsung/exynos7580-common
+BOARD_KERNEL_IMAGE_NAME := Image

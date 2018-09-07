@@ -1,6 +1,5 @@
 #
-# Copyright 2016 The CyanogenMod Project
-# Copyright 2017-2018 The LineageOS Project
+# Copyright (C) 2016 The CyanogenMod Project
 #
 # Licensed under the Apache License, Version 2.0 (the "License");
 # you may not use this file except in compliance with the License.
@@ -15,15 +14,17 @@
 # limitations under the License.
 #
 
-# Inherit from Exynos7580-common
-include device/samsung/exynos7580-common/BoardConfigCommon.mk
+LOCAL_PATH := $(call my-dir)
 
-TARGET_OTA_ASSERT_DEVICE := j7e3g,j7e3gxx,j7elte,j7eltexx
+include $(CLEAR_VARS)
 
-DEVICE_PATH := device/samsung/j7eltexx
+# GPS
+include $(CLEAR_VARS)
 
-# Include makefiles from board folder
--include $(DEVICE_PATH)/configs/board/*.mk
+LOCAL_SRC_FILES := samsung_gps.cpp
+LOCAL_SHARED_LIBRARIES := libbinder liblog libcutils libgui libutils libsensor
+LOCAL_MODULE := libshim_gpsd
+LOCAL_MODULE_CLASS := SHARED_LIBRARIES
+LOCAL_PROPRIETARY_MODULE := true
 
-# inherit from the proprietary version
--include vendor/samsung/j7eltexx/BoardConfigVendor.mk
+include $(BUILD_SHARED_LIBRARY)

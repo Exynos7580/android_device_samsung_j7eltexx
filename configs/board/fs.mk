@@ -15,15 +15,21 @@
 # limitations under the License.
 #
 
-# Inherit from Exynos7580-common
-include device/samsung/exynos7580-common/BoardConfigCommon.mk
+#####################
+# Partition FS
+#####################
 
-TARGET_OTA_ASSERT_DEVICE := j7e3g,j7e3gxx,j7elte,j7eltexx
+# Partitions defines
+BOARD_HAS_NO_MISC_PARTITION:= false
 
-DEVICE_PATH := device/samsung/j7eltexx
+# Partitions types
+TARGET_USERIMAGES_USE_EXT4 := true
+#TARGET_USERIMAGES_USE_F2FS := true
 
-# Include makefiles from board folder
--include $(DEVICE_PATH)/configs/board/*.mk
-
-# inherit from the proprietary version
--include vendor/samsung/j7eltexx/BoardConfigVendor.mk
+# Partitions sizes
+BOARD_BOOTIMAGE_PARTITION_SIZE := 29360128
+BOARD_CACHEIMAGE_PARTITION_SIZE := 104857600
+BOARD_RECOVERYIMAGE_PARTITION_SIZE := 35651584
+BOARD_SYSTEMIMAGE_PARTITION_SIZE := 2206203904
+BOARD_USERDATAIMAGE_PARTITION_SIZE := 13514047488
+BOARD_FLASH_BLOCK_SIZE := 131072

@@ -1,6 +1,6 @@
 #
-# Copyright (C) 2016 The CyanogenMod Project
-#           (C) 2017 The LineageOS Project
+# Copyright 2016 The CyanogenMod Project
+# Copyright 2017-2018 The LineageOS Project
 #
 # Licensed under the Apache License, Version 2.0 (the "License");
 # you may not use this file except in compliance with the License.
@@ -19,88 +19,12 @@ LOCAL_PATH := device/samsung/j7eltexx
 
 $(call inherit-product, $(SRC_TARGET_DIR)/product/languages_full.mk)
 
-# Overlays
-DEVICE_PACKAGE_OVERLAYS += device/samsung/j7eltexx/overlay
+# Vendor security patch level
+PRODUCT_PROPERTY_OVERRIDES += \
+    ro.lineage.build.vendor_security_patch=2017-12-01
 
-# Device uses high-density artwork where available
-PRODUCT_AAPT_CONFIG := xlarge
-PRODUCT_AAPT_PREF_CONFIG := xhdpi
-# A list of dpis to select prebuilt apk, in precedence order.
-PRODUCT_AAPT_PREBUILT_DPI := hdpi mdpi
-
-# Flat device tree for boot image
-#PRODUCT_PACKAGES += \
-#    dtbhtoolExynos
-
-# Boot animation
-TARGET_SCREEN_HEIGHT := 1280
-TARGET_SCREEN_WIDTH := 720
-
-# Audio
-PRODUCT_COPY_FILES += \
-    $(LOCAL_PATH)/configs/audio/audio_policy.conf:system/etc/audio_policy.conf \
-    $(LOCAL_PATH)/configs/audio/mixer_paths.xml:system/etc/mixer_paths_0.xml
-
-# Bluetooth
-PRODUCT_COPY_FILES += \
-    $(LOCAL_PATH)/bluetooth/bt_vendor.conf:system/etc/bluetooth/bt_vendor.conf
-
-# GPS
-PRODUCT_COPY_FILES += \
-    $(LOCAL_PATH)/configs/gps/gps.conf:system/etc/gps.conf \
-    $(LOCAL_PATH)/configs/gps/gps.xml:system/etc/gps.xml
-
-# Key-layout
-PRODUCT_COPY_FILES += \
-	$(LOCAL_PATH)/idc/Synaptics_HID_TouchPad.idc:system/usr/idc/Synaptics_HID_TouchPad.idc \
-	$(LOCAL_PATH)/idc/Synaptics_RMI4_TouchPad_Sensor.idc:system/usr/idc/Synaptics_RMI4_TouchPad_Sensor.idc \
-	$(LOCAL_PATH)/keylayout/Button_Jack.kl:system/usr/keylayout/Button_Jack.kl \
-	$(LOCAL_PATH)/keylayout/gpio_keys.kl:system/usr/keylayout/gpio_keys.kl \
-	$(LOCAL_PATH)/keylayout/sec_touchkey.kl:system/usr/keylayout/sec_touchkey.kl
-
-# Lights
-PRODUCT_PACKAGES += \
-    lights.universal7580
-
-# Media profile
-PRODUCT_COPY_FILES += \
-    $(LOCAL_PATH)/configs/media/media_profiles.xml:system/etc/media_profiles.xml
-
-# Power
-PRODUCT_PACKAGES += \
-    power.universal7580
-
-# Ramdisk
-PRODUCT_PACKAGES += \
-    fstab.samsungexynos7580 \
-    init.baseband.rc \
-    init.samsung.rc \
-    init.samsungexynos7580.rc \
-    init.samsungexynos7580.usb.rc \
-    init.wifi.rc \
-    ueventd.samsungexynos7580.rc
-
-# Wi-fi
-PRODUCT_COPY_FILES += \
-    $(LOCAL_PATH)/configs/wifi/cred.conf:system/etc/wifi/cred.conf \
-    $(LOCAL_PATH)/configs/wifi/wpa_supplicant_overlay.conf:system/etc/wifi/wpa_supplicant_overlay.conf \
-    $(LOCAL_PATH)/configs/wifi/p2p_supplicant_overlay.conf:system/etc/wifi/p2p_supplicant_overlay.conf
-
-ADDITIONAL_DEFAULT_PROPERTIES += \
-    wifi.interface=wlan0
-    
-# Samsung
-PRODUCT_PACKAGES += \
-    SamsungServiceMode
-
-# Ril
-PRODUCT_PACKAGES += \
-    libprotobuf-cpp-full \
-    modemloader
-
-# cpboot-daemon for modem
-PRODUCT_COPY_FILES += \
-    $(LOCAL_PATH)/ril/sbin/cbd:root/sbin/cbd
+# Inherit board specific products
+-include $(LOCAL_PATH)/configs/product/*.mk
 
 # Inherit from Exynos7580-common
 $(call inherit-product, device/samsung/exynos7580-common/device-common.mk)

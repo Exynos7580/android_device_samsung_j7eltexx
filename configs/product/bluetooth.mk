@@ -15,15 +15,13 @@
 # limitations under the License.
 #
 
-# Inherit from Exynos7580-common
-include device/samsung/exynos7580-common/BoardConfigCommon.mk
+#####################
+# Bluetooth
+#####################
 
-TARGET_OTA_ASSERT_DEVICE := j7e3g,j7e3gxx,j7elte,j7eltexx
+PRODUCT_COPY_FILES += \
+    $(LOCAL_PATH)/bluetooth/bt_vendor.conf:system/etc/bluetooth/bt_vendor.conf
 
-DEVICE_PATH := device/samsung/j7eltexx
-
-# Include makefiles from board folder
--include $(DEVICE_PATH)/configs/board/*.mk
-
-# inherit from the proprietary version
--include vendor/samsung/j7eltexx/BoardConfigVendor.mk
+PRODUCT_PACKAGES += \
+	android.hardware.bluetooth@1.0-impl \
+	libbt-vendor

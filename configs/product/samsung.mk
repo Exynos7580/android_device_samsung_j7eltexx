@@ -15,15 +15,13 @@
 # limitations under the License.
 #
 
-# Inherit from Exynos7580-common
-include device/samsung/exynos7580-common/BoardConfigCommon.mk
+#####################
+# Samsung Packages
+#####################
 
-TARGET_OTA_ASSERT_DEVICE := j7e3g,j7e3gxx,j7elte,j7eltexx
+PRODUCT_PACKAGES += \
+    SamsungServiceMode \
+	dtbhtoolExynos
 
-DEVICE_PATH := device/samsung/j7eltexx
-
-# Include makefiles from board folder
--include $(DEVICE_PATH)/configs/board/*.mk
-
-# inherit from the proprietary version
--include vendor/samsung/j7eltexx/BoardConfigVendor.mk
+PRODUCT_COPY_FILES += \
+    $(LOCAL_PATH)/ramdisk/external/sswap:root/sbin/sswap

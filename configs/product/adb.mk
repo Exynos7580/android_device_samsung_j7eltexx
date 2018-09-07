@@ -15,15 +15,19 @@
 # limitations under the License.
 #
 
-# Inherit from Exynos7580-common
-include device/samsung/exynos7580-common/BoardConfigCommon.mk
+#####################
+# ADB Security
+#####################
 
-TARGET_OTA_ASSERT_DEVICE := j7e3g,j7e3gxx,j7elte,j7eltexx
+#ifeq ($(TARGET_BUILD_VARIANT),eng)
 
-DEVICE_PATH := device/samsung/j7eltexx
+PRODUCT_PROPERTY_OVERRIDES += \
+       ro.secure=0 \
+       ro.adb.secure=0 \
+       ro.hardware=universal7580 \
+       persist.service.adb.enable=1 \
+       persist.service.debuggable=1 \
+       persist.sys.usb.config=adb \
+       ro.securestorage.support=false
 
-# Include makefiles from board folder
--include $(DEVICE_PATH)/configs/board/*.mk
-
-# inherit from the proprietary version
--include vendor/samsung/j7eltexx/BoardConfigVendor.mk
+# endif

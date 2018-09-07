@@ -15,15 +15,13 @@
 # limitations under the License.
 #
 
-# Inherit from Exynos7580-common
-include device/samsung/exynos7580-common/BoardConfigCommon.mk
+#####################
+# DPI
+#####################
 
-TARGET_OTA_ASSERT_DEVICE := j7e3g,j7e3gxx,j7elte,j7eltexx
+# Device uses high-density artwork where available
+PRODUCT_AAPT_CONFIG := xlarge
+PRODUCT_AAPT_PREF_CONFIG := xhdpi
 
-DEVICE_PATH := device/samsung/j7eltexx
-
-# Include makefiles from board folder
--include $(DEVICE_PATH)/configs/board/*.mk
-
-# inherit from the proprietary version
--include vendor/samsung/j7eltexx/BoardConfigVendor.mk
+# A list of dpis to select prebuilt apk, in precedence order.
+PRODUCT_AAPT_PREBUILT_DPI := hdpi mdpi

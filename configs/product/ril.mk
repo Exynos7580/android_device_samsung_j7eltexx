@@ -15,15 +15,24 @@
 # limitations under the License.
 #
 
-# Inherit from Exynos7580-common
-include device/samsung/exynos7580-common/BoardConfigCommon.mk
+#####################
+# Radio
+#####################
 
-TARGET_OTA_ASSERT_DEVICE := j7e3g,j7e3gxx,j7elte,j7eltexx
+PRODUCT_PACKAGES += \
+    libprotobuf-cpp-fl26 \
+    libprotobuf-cpp-full \
+    libsecril-client \
+    modemloader \
+    libxml2 \
+    rild \
+    libril \
+    libreference-ril \
+    libsecril-client-sap \
+    android.hardware.radio@1.1 \
+    android.hardware.radio.deprecated@1.0
 
-DEVICE_PATH := device/samsung/j7eltexx
-
-# Include makefiles from board folder
--include $(DEVICE_PATH)/configs/board/*.mk
-
-# inherit from the proprietary version
--include vendor/samsung/j7eltexx/BoardConfigVendor.mk
+# cpboot-daemon for modem
+PRODUCT_COPY_FILES += \
+    $(LOCAL_PATH)/configs/radio/cbd:system/bin/cbd \
+    device/samsung/exynos7580-common/configs/init/rild.rc:system/vendor/etc/init/rild.rc
