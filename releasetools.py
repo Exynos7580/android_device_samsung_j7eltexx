@@ -12,7 +12,7 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 
-'''a3xelte release tool'''
+'''j7eltexx release tool'''
 
 import common
 import os
@@ -42,6 +42,6 @@ def FullOTA_InstallBegin(info):
     info.script.AppendExtra('ui_print("                Thanks for installing               ");');
     info.script.AppendExtra('ui_print("    Source code available on GitHub : @Exynos7580   ");');
     info.script.AppendExtra('ui_print("                                                    ");');
-    info.script.AppendExtra('ui_print("    --> Maintainer: l-0-w                           ");');
-    info.script.AppendExtra('ui_print("    --> Device: Samsung Galaxy A3 2016              ");');
+    info.script.AppendExtra('ui_print("    --> Maintainer: messi2050                           ");');
+    info.script.AppendExtra('ui_print("    --> Device: Samsung Galaxy J7 2015              ");');
     info.script.AppendExtra('ui_print("                                                    ");');
