@@ -3378,4 +3378,165 @@
 		<ctl name="ADC Left Gain" value="127" />
 		<ctl name="ADC Right Gain" value="127" />
 	</path>
+	
+  <!-- Paths for the audio HAL (we map this to the Samsung paths) -->
+
+  <path name="earpiece">
+    <path name="media-handset" />
+    <path name="gain-media-handset" />
+  </path>
+
+  <path name="speaker">
+    <path name="media-speaker" />
+    <path name="gain-media-speaker" />
+  </path>
+
+  <path name="headphones">
+    <path name="media-headset" />
+    <path name="gain-media-headset" />
+  </path>
+
+  <path name="speaker-and-headphones">
+    <path name="media-speaker-headset" />
+    <path name="gain-media-speaker-headset" />
+  </path>
+
+  <path name="voice-earpiece">
+    <path name="incall_nb-handset" />
+    <path name="gain-incall_nb-handset" />
+  </path>
+
+  <path name="voice-speaker">
+    <path name="incall_nb-speaker" />
+    <path name="gain-incall_nb-speaker" />
+  </path>
+
+  <path name="voice-headphones">
+    <path name="incall_nb-headphone" />
+    <path name="gain-incall_nb-headphone" />
+  </path>
+
+  <path name="voice-earpiece-wb">
+    <path name="incall_wb-handset" />
+    <path name="gain-incall_wb-handset" />
+  </path>
+
+  <path name="voice-speaker-wb">
+    <path name="incall_wb-speaker" />
+    <path name="gain-incall_wb-speaker" />
+  </path>
+
+  <path name="voice-headphones-wb">
+    <path name="incall_wb-headphone" />
+    <path name="gain-incall_wb-headphone" />
+  </path>
+
+  <path name="voice-bt-sco-headset">
+    <path name="incall_nb-bt-sco-headset" />
+    <path name="gain-incall_nb-bt-sco-headset" />
+  </path>
+
+  <path name="voice-bt-sco-headset-wb">
+    <path name="incall_wb-bt-sco-headset" />
+    <path name="gain-incall_wb-bt-sco-headset" />
+  </path>
+
+  <path name="hdmi">
+    <!-- TODO -->
+  </path>
+
+  <path name="speaker-and-hdmi">
+    <!-- TODO -->
+  </path>
+
+  <path name="bt-sco-headset">
+    <path name="media-bt-sco-headset" />
+    <path name="gain-media-bt-sco-headset" />
+  </path>
+
+  <!-- Input stage -->
+
+  <path name="earpiece-mic">
+    <path name="media-mic" />
+    <path name="gain-media-mic" />
+  </path>
+
+  <path name="speaker-mic">
+    <path name="media-mic" />
+    <path name="gain-media-mic" />
+  </path>
+
+  <path name="headset-mic">
+    <path name="media-headset-mic" />
+    <path name="gain-media-headset-mic" />
+  </path>
+
+  <path name="voice-mic">
+    <path name="incall_nb-handset-mic" />
+    <path name="gain-incall_nb-handset-mic" />
+  </path>
+
+  <path name="voice-earpiece-mic">
+    <path name="incall_nb-handset-mic" />
+    <path name="gain-incall_nb-handset-mic" />
+  </path>
+
+  <path name="voice-speaker-mic">
+    <path name="incall_nb-speaker-mic" />
+    <path name="gain-incall_nb-speaker-mic" />
+  </path>
+
+  <path name="voice-headset-mic">
+    <path name="incall_nb-headset-mic" />
+    <path name="gain-incall_nb-headset-mic" />
+  </path>
+
+  <path name="voice-earpiece-mic-wb">
+    <path name="incall_wb-handset-mic" />
+    <path name="gain-incall_wb-handset-mic" />
+  </path>
+
+  <path name="voice-speaker-mic-wb">
+    <path name="incall_wb-speaker-mic" />
+    <path name="gain-incall_wb-speaker-mic" />
+  </path>
+
+  <path name="voice-headset-mic-wb">
+    <path name="incall_wb-headset-mic" />
+    <path name="gain-incall_wb-headset-mic" />
+  </path>
+
+  <path name="voice-bt-sco-mic">
+    <path name="incall_nb-bt-sco-headset-in" />
+    <path name="gain-incall_nb-bt-sco-headset-in" />
+  </path>
+
+  <path name="voice-bt-sco-mic-wb">
+    <path name="incall_wb-bt-sco-headset-in" />
+    <path name="gain-incall_wb-bt-sco-headset-in" />
+  </path>
+
+  <path name="hdmi-mic">
+    <!-- TODO -->
+  </path>
+
+  <path name="bt-sco-mic">
+    <path name="media-bt-sco-headset-in" />
+    <path name="gain-media-bt-sco-headset-in" />
+  </path>
+
+  <path name="camcorder-mic">
+    <path name="camcorder-mic-oe" />
+    <path name="gain-camcorder-mic-oe" />
+  </path>
+
+  <path name="voice-rec-headset-mic">
+    <path name="recording-headset-mic" />
+    <path name="gain-recording-headset-mic" />
+  </path>
+
+  <path name="voice-rec-mic">
+    <path name="recording-mic" />
+    <path name="gain-recording-mic" />
+  </path>
 </mixer>
