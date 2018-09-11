@@ -20,7 +20,9 @@
 #####################
 
 PRODUCT_PACKAGES += \
-    android.hardware.power@1.0-service.universal7580
+    power.universal7580 \
+    android.hardware.power@1.0-service \
+    android.hardware.power@1.0-impl
 
-PRODUCT_COPY_FILES += \
-    device/samsung/j7eltexx/hardware/power/profiles.xml:system/etc/power_profiles.xml
+#PRODUCT_COPY_FILES += \
+#    device/samsung/j7eltexx/hardware/power/profiles.xml:system/etc/power_profiles.xml
