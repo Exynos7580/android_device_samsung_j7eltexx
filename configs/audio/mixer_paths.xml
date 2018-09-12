@@ -3525,10 +3525,10 @@
     <path name="gain-media-bt-sco-headset-in" />
   </path>
 
+  <!-- samsung uses the same path
   <path name="camcorder-mic">
-    <path name="camcorder-mic-oe" />
-    <path name="gain-camcorder-mic-oe" />
   </path>
+  -->
 
   <path name="voice-rec-headset-mic">
     <path name="recording-headset-mic" />
