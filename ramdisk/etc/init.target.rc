@@ -7,9 +7,6 @@ on early-boot
 on post-fs-data
     rm /data/logcat.txt
 
-    #Fix battery percent drop after reboot
-    write /sys/class/power_supply/battery/batt_capacity_max 944
-
     # Create camera directory
     mkdir /data/camera 0770 media system
 
