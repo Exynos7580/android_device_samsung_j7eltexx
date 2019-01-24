@@ -5,21 +5,9 @@ vendor/firmware/bcm43438A1_V0051.0230.hcd
 cameradata/datapattern_420sp.yuv
 cameradata/datapattern_front_420sp.yuv
 lib/hw/camera.universal7580.so
-lib/libexynosv4l2.so
 lib/libexynoscamera.so
-lib/libhwjpeg.so
-lib/libuniplugin.so
-lib/libsensorlistener.so
 vendor/firmware/setfile_3l2.bin
 vendor/firmware/setfile_5e3.bin
-
-### GPS
-bin/gps.cer
-lib/hw/gps.default.so:lib/hw/gps.universal7580.so
-lib/libwrappergps.so
-
-### Graphics
-vendor/lib/egl/libGLES_mali.so
 
 ### Media
 # S5P Multi Format Codec
@@ -139,15 +127,9 @@ vendor/etc/nxp/mVoIPSec/Tx_ControlParams_WIDEBAND_WIRED_HEADSET.txt
 ### RIL
 # opensource rild don't work well for dual sim
 bin/rild
-lib/libsecnativefeature.so
-lib/libsec-ril.so
-lib/libsec-ril-dsds.so
 
 ### Sensors
 lib/hw/sensors.universal7580.so
-
-### Widevine
-lib/libstagefright_hdcp.so
 
 ### Wifi
 etc/wifi/bcmdhd_apsta.bin
@@ -155,4 +137,3 @@ etc/wifi/bcmdhd_mfg.bin
 etc/wifi/bcmdhd_sta.bin
 etc/wifi/nvram_mfg.txt
 etc/wifi/nvram_net.txt
-
