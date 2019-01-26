@@ -1025,21 +1025,21 @@
 
 	<path name="gain-media-speaker">
 		<ctl name="S2801 MIX1_LVL" value="0" />
-		<ctl name="DAC Gain" value="121" />
-		<ctl name="Speaker Volume" value="3" />
+		<ctl name="DAC Gain" value="125" />
+		<ctl name="Speaker Volume" value="8" />
 	</path>
 
 	<path name="gain-media-headset">
 		<ctl name="S2801 MIX1_LVL" value="0" />
-		<ctl name="DAC Gain" value="121" />
-		<ctl name="Headphone Volume" value="36" />
+		<ctl name="DAC Gain" value="125" />
+		<ctl name="Headphone Volume" value="46" />
 	</path>
 
 	<path name="gain-media-speaker-headset">
 		<ctl name="S2801 MIX1_LVL" value="0" />
-		<ctl name="DAC Gain" value="121" />
-		<ctl name="Speaker Volume" value="3" />
-		<ctl name="Headphone Volume" value="36" />
+		<ctl name="DAC Gain" value="125" />
+		<ctl name="Speaker Volume" value="5" />
+		<ctl name="Headphone Volume" value="46" />
 	</path>
 
 	<path name="gain-media-bt-sco-headset">
@@ -1061,8 +1061,8 @@
 
 	<path name="gain-ringtone-speaker">
 		<ctl name="S2801 MIX1_LVL" value="0" />
-		<ctl name="DAC Gain" value="105" />
-		<ctl name="Speaker Volume" value="0" />
+		<ctl name="DAC Gain" value="125" />
+		<ctl name="Speaker Volume" value="5" />
 	</path>
 
 	<path name="gain-ringtone-headset">
