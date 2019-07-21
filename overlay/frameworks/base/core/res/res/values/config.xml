@@ -113,6 +113,6 @@
 
     <!-- These resources are around just to allow their values to be customized
      for different hardware and product builds. -->
-    <string name="config_radio_access_family">GSM | WCDMA | LTE | CDMA | EVDO</string>
+    <string name="config_radio_access_family">GSM | WCDMA | LTE</string>
 
 </resources>
